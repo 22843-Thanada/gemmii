@@ -38,23 +38,10 @@ body:before{
 /* ===================== LOADER ===================== */
 #loader{
  position:fixed;inset:0;z-index:99999;display:grid;place-items:center;
- overflow:hidden;background:
-radial-gradient(circle at 50% 18%,rgba(103,232,249,.24),transparent 23%),
-radial-gradient(circle at 20% 70%,rgba(143,255,224,.13),transparent 25%),
-radial-gradient(circle at 82% 58%,rgba(167,139,250,.14),transparent 25%),
-linear-gradient(180deg,#001b2d 0%,#003d57 48%,#00121d 100%);
+ background:radial-gradient(circle at 50% 45%,#07557855,transparent 32%),#010a12;
  transition:opacity .9s,visibility .9s;
 }
 #loader.hide{opacity:0;visibility:hidden;pointer-events:none}
-#loader:before{content:"";position:absolute;inset:-20%;
-background:repeating-radial-gradient(ellipse at 50% 8%,transparent 0 28px,rgba(191,252,255,.035) 30px 34px,transparent 36px 75px);
-animation:loaderWater 12s linear infinite}
-#loader:after{content:"";position:absolute;inset:0;
-background:linear-gradient(118deg,transparent 0 24%,rgba(191,252,255,.08) 30%,transparent 39%),
-linear-gradient(67deg,transparent 0 55%,rgba(103,232,249,.07) 62%,transparent 72%);
-animation:loaderRays 7s ease-in-out infinite alternate}
-@keyframes loaderWater{to{transform:translateY(90px) rotate(3deg)}}
-@keyframes loaderRays{to{transform:translateX(50px);opacity:.55}}
 .loader-content{text-align:center;width:min(720px,92vw)}
 .loader-orbit{
  width:155px;height:155px;margin:auto;border:2px solid #67e8f977;border-radius:50%;
@@ -365,28 +352,20 @@ body.day footer{background:#ffffff77}
 <div class="ocean-bg">
  <div class="sun-glow"></div><div class="caustics"></div>
  <div class="ray r1"></div><div class="ray r2"></div><div class="ray r3"></div><div class="ray r4"></div>
- <div class="depth-layer"></div>
- <div class="underwater-fish" style="top:12%;--dur:27s;--sway:-28px">🐠</div>
- <div class="underwater-fish" style="top:25%;font-size:30px;--dur:34s;--sway:35px;animation-delay:-12s">🐟</div>
- <div class="underwater-fish" style="top:42%;font-size:48px;--dur:39s;--sway:-45px;animation-delay:-18s">🐡</div>
- <div class="underwater-fish" style="top:61%;font-size:39px;--dur:31s;--sway:28px;animation-delay:-8s">🐬</div>
- <div class="underwater-fish" style="top:76%;font-size:34px;--dur:36s;--sway:-32px;animation-delay:-23s">🐟</div>
- <div class="underwater-fish" style="top:34%;font-size:30px;--dur:43s;--sway:48px;animation-delay:-30s">🦐</div>
- <div class="underwater-fish reverse" style="top:18%;font-size:31px;--dur:33s;--sway:35px;animation-delay:-5s">🐟</div>
- <div class="underwater-fish reverse" style="top:49%;font-size:42px;--dur:37s;--sway:-38px;animation-delay:-20s">🐠</div>
- <div class="underwater-fish reverse" style="top:69%;font-size:35px;--dur:42s;--sway:28px;animation-delay:-13s">🐡</div>
- <div class="jelly-css pink" style="left:6%;top:29%;--time:8s"></div>
- <div class="jelly-css purple" style="left:18%;top:56%;--time:9s;animation-delay:-2s"></div>
- <div class="jelly-css blue" style="left:37%;top:21%;--time:10s;animation-delay:-4s"></div>
- <div class="jelly-css green" style="left:57%;top:65%;--time:8s;animation-delay:-1s"></div>
- <div class="jelly-css orange" style="left:74%;top:28%;--time:9s;animation-delay:-5s"></div>
- <div class="jelly-css white" style="left:88%;top:51%;--time:11s;animation-delay:-3s"></div>
- <div class="jelly-css purple" style="left:47%;top:47%;--time:10s;animation-delay:-6s"></div>
+
+ <div class="bg-fish" style="top:13%;animation-duration:25s">🐠</div>
+ <div class="bg-fish" style="top:31%;font-size:25px;animation-duration:32s;animation-delay:-9s">🐟</div>
+ <div class="bg-fish" style="top:51%;font-size:42px;animation-duration:37s;animation-delay:-17s">🐡</div>
+ <div class="bg-fish" style="top:73%;font-size:28px;animation-duration:29s;animation-delay:-11s">🐬</div>
+ <div class="bg-fish reverse" style="top:22%;font-size:26px;animation-duration:31s;animation-delay:-6s">🐟</div>
+ <div class="bg-fish reverse" style="top:45%;font-size:36px;animation-duration:35s;animation-delay:-20s">🐠</div>
+
+ <div class="jelly j1">🪼</div><div class="jelly j2">🪼</div><div class="jelly j3">🪼</div>
+ <div class="jelly j4">🪼</div><div class="jelly j5">🪼</div><div class="jelly j6">🪼</div>
+ <div class="jelly j7">🪼</div><div class="jelly j8">🪼</div>
+
  <div class="seabed"><div class="sand"></div>
-  <div class="rock rk1"></div><div class="rock rk2"></div><div class="rock rk3"></div>
-  <div class="coral color-orange c1"></div><div class="coral color-red c2"></div>
-  <div class="coral color-purple c3"></div><div class="coral color-blue c4"></div>
-  <div class="coral color-white c5"></div>
+  <div class="coral c1"></div><div class="coral c2"></div><div class="coral c3"></div><div class="coral c4"></div><div class="coral c5"></div>
   <div class="seaweed w1"></div><div class="seaweed w2"></div><div class="seaweed w3"></div><div class="seaweed w4"></div>
  </div>
 </div>
@@ -530,7 +509,7 @@ function showPage(name,updateHash=true){
  pages.forEach(p=>p.classList.toggle("active",p.id==="page-"+name));
  navButtons.forEach(b=>b.classList.toggle("active",b.dataset.page===name));
  navLinks.classList.remove("open");menuBtn.textContent="☰";
- window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0;
+ window.scrollTo({top:0,behavior:"smooth"});
  if(updateHash)history.replaceState(null,"","#"+name);
 }
 navButtons.forEach(btn=>btn.addEventListener("click",()=>showPage(btn.dataset.page)));
@@ -575,14 +554,6 @@ for(let i=0;i<48;i++){
  b.style.animationDuration=(9+Math.random()*18)+"s";
  b.style.animationDelay=(-Math.random()*22)+"s";
  oceanBg.appendChild(b);
-}
-
-for(let i=0;i<26;i++){
- const p=document.createElement("div");p.className="water-particle";
- p.style.left=Math.random()*100+"%";p.style.top=(10+Math.random()*82)+"%";
- p.style.setProperty("--t",(5+Math.random()*8)+"s");
- p.style.setProperty("--dx",(-35+Math.random()*70)+"px");
- oceanBg.appendChild(p);
 }
 
 /* ===================== MOUSE EFFECT - OPTIMIZED ===================== */
@@ -651,4 +622,4 @@ document.addEventListener("keydown",e=>{
 });
 </script>
 </body>
-      </html>
+   </html>
