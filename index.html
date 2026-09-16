@@ -4,69 +4,74 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Supitchaya Student Portfolio - Ocean Edition">
-<meta name="theme-color" content="#020b20">
-
 <title>Supitchaya Ocean Portfolio</title>
 
 <style>
 
 /* =========================================================
    SUPITCHAYA OCEAN PORTFOLIO
-   ULTIMATE UNDERWATER EDITION
-   ========================================================= */
+   5 PAGES + DAY / NIGHT OCEAN
+========================================================= */
 
 :root{
-  --deep:#010510;
-  --deep2:#031b35;
-  --deep3:#003b59;
+  --deep:#010711;
+  --deep2:#021b30;
+  --deep3:#003f5b;
 
-  --cyan:#00eaff;
-  --cyan2:#64f7ff;
-  --blue:#168cff;
-  --purple:#9b5cff;
-  --pink:#ff65d8;
-  --green:#57ffc4;
+  --blue:#1677ff;
+  --cyan:#31e7ff;
+  --aqua:#67f5ff;
+  --mint:#82ffd9;
 
-  --white:#efffff;
-  --text:#e9fbff;
-  --muted:#9cc7d8;
+  --pink:#ff73d1;
+  --purple:#a66cff;
+  --yellow:#ffe86a;
+  --orange:#ff8b3d;
 
-  --glass:rgba(3,30,57,.72);
-  --glass2:rgba(7,68,101,.48);
+  --text:#eaffff;
+  --muted:#a8d8e8;
 
-  --border:rgba(93,238,255,.48);
+  --glass:rgba(3,28,48,.70);
+  --glass2:rgba(8,48,70,.58);
 
-  --shadow:rgba(0,0,0,.55);
+  --border:rgba(89,237,255,.40);
+  --shadow:rgba(0,0,0,.50);
 }
 
+/* =========================================================
+   DAY MODE
+========================================================= */
+
 body.day{
-  --deep:#b9f7ff;
-  --deep2:#6be1f2;
-  --deep3:#2ba5c5;
 
-  --cyan:#00a9dc;
-  --cyan2:#51e8ff;
-  --blue:#348cff;
-  --purple:#a56cff;
-  --pink:#ff76c8;
-  --green:#25c995;
+  --deep:#a9f4ff;
+  --deep2:#50d8ec;
+  --deep3:#1595bd;
 
-  --white:#ffffff;
-  --text:#07394c;
-  --muted:#286477;
+  --blue:#2189dc;
+  --cyan:#00bce8;
+  --aqua:#39e8ff;
+  --mint:#6ff7d1;
 
-  --glass:rgba(245,255,255,.78);
-  --glass2:rgba(255,255,255,.55);
+  --pink:#ff72bd;
+  --purple:#9b65e8;
+  --yellow:#ffd94d;
+  --orange:#ff8155;
 
-  --border:rgba(0,139,181,.28);
+  --text:#07394d;
+  --muted:#276477;
 
-  --shadow:rgba(0,80,110,.20);
+  --glass:rgba(255,255,255,.72);
+  --glass2:rgba(238,253,255,.64);
+
+  --border:rgba(0,120,160,.25);
+  --shadow:rgba(0,80,110,.22);
 }
 
 
 /* =========================================================
    RESET
-   ========================================================= */
+========================================================= */
 
 *{
   margin:0;
@@ -79,29 +84,32 @@ html{
 }
 
 body{
-  min-height:100vh;
-  overflow-x:hidden;
 
   font-family:
-    "Noto Sans Thai",
-    "Segoe UI",
-    Tahoma,
-    Arial,
-    sans-serif;
+  "Noto Sans Thai",
+  "Segoe UI",
+  Tahoma,
+  Arial,
+  sans-serif;
 
+  min-height:100vh;
   color:var(--text);
 
+  overflow-x:hidden;
+
   background:
+    radial-gradient(circle at 15% 10%,#00d9ff22,transparent 25%),
+    radial-gradient(circle at 85% 20%,#7b4dff1c,transparent 25%),
     linear-gradient(
       180deg,
-      var(--deep) 0%,
-      var(--deep2) 45%,
-      var(--deep3) 100%
+      var(--deep),
+      var(--deep2) 48%,
+      var(--deep3)
     );
 
   transition:
-    background 1s ease,
-    color .5s ease;
+    background 1s,
+    color .5s;
 }
 
 button,
@@ -113,286 +121,163 @@ button{
   cursor:pointer;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
 
 /* =========================================================
-   DEEP SEA BACKGROUND
-   ========================================================= */
+   OCEAN BACKGROUND
+========================================================= */
 
-body::before{
-  content:"";
+.ocean-bg{
   position:fixed;
   inset:0;
-  z-index:-30;
-  pointer-events:none;
-
-  background:
-    radial-gradient(
-      ellipse at 50% -15%,
-      rgba(82,237,255,.38),
-      transparent 38%
-    ),
-
-    radial-gradient(
-      circle at 10% 35%,
-      rgba(0,128,255,.20),
-      transparent 28%
-    ),
-
-    radial-gradient(
-      circle at 90% 45%,
-      rgba(143,67,255,.20),
-      transparent 27%
-    ),
-
-    radial-gradient(
-      circle at 50% 100%,
-      rgba(0,255,190,.18),
-      transparent 35%
-    );
-}
-
-
-/* =========================================================
-   NIGHT SCI-FI GRID
-   ========================================================= */
-
-.scifi-grid{
-  position:fixed;
-  left:-10%;
-  right:-10%;
-  bottom:-12%;
-  height:45%;
-
-  z-index:-20;
-  pointer-events:none;
-
-  opacity:.30;
-
-  background:
-    linear-gradient(
-      rgba(0,234,255,.20) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0,234,255,.20) 1px,
-      transparent 1px
-    );
-
-  background-size:
-    45px 45px;
-
-  transform:
-    perspective(400px)
-    rotateX(65deg);
-
-  transform-origin:center bottom;
-
-  mask-image:
-    linear-gradient(
-      to top,
-      black,
-      transparent
-    );
-}
-
-body.day .scifi-grid{
-  opacity:.08;
-}
-
-
-/* =========================================================
-   WATER LIGHT RAYS
-   ========================================================= */
-
-.water-rays{
-  position:fixed;
-  inset:0;
-  z-index:-19;
-
   overflow:hidden;
   pointer-events:none;
-
-  opacity:.65;
+  z-index:-10;
 }
 
-.water-rays span{
-  position:absolute;
-  top:-20%;
+/* water light */
 
-  width:70px;
-  height:150%;
+.ocean-light{
+  position:absolute;
+  width:700px;
+  height:700px;
+
+  left:50%;
+  top:30%;
+
+  transform:translate(-50%,-50%);
 
   background:
-    linear-gradient(
-      180deg,
-      transparent,
-      rgba(120,250,255,.55),
-      transparent
+    radial-gradient(
+      ellipse,
+      rgba(72,241,255,.28),
+      transparent 65%
     );
 
-  filter:blur(14px);
-
-  transform:rotate(9deg);
+  filter:blur(20px);
 
   animation:
-    rayMove 8s ease-in-out infinite;
+    waterLight 8s ease-in-out infinite;
 }
 
-.water-rays span:nth-child(1){
-  left:3%;
-  animation-delay:-1s;
+@keyframes waterLight{
+
+  0%,100%{
+    transform:translate(-50%,-50%) scale(1);
+    opacity:.65;
+  }
+
+  50%{
+    transform:translate(-45%,-55%) scale(1.3);
+    opacity:1;
+  }
+
 }
 
-.water-rays span:nth-child(2){
-  left:17%;
-  width:45px;
-  animation-delay:-4s;
+
+/* =========================================================
+   WATER RAYS
+========================================================= */
+
+.rays{
+  position:absolute;
+  inset:0;
+  opacity:.35;
 }
 
-.water-rays span:nth-child(3){
-  left:34%;
-  width:90px;
-  animation-delay:-6s;
+.ray{
+  position:absolute;
+  top:-20%;
+  width:80px;
+  height:140%;
+
+  background:linear-gradient(
+    180deg,
+    transparent,
+    rgba(105,246,255,.22),
+    transparent
+  );
+
+  transform:rotate(12deg);
+  filter:blur(10px);
+
+  animation:rayMove 9s ease-in-out infinite;
 }
 
-.water-rays span:nth-child(4){
-  left:52%;
-  width:55px;
-  animation-delay:-2s;
+.ray:nth-child(1){
+  left:5%;
 }
 
-.water-rays span:nth-child(5){
-  left:70%;
-  width:100px;
-  animation-delay:-5s;
-}
-
-.water-rays span:nth-child(6){
-  left:91%;
-  width:50px;
+.ray:nth-child(2){
+  left:20%;
   animation-delay:-3s;
 }
 
+.ray:nth-child(3){
+  left:43%;
+  animation-delay:-6s;
+}
+
+.ray:nth-child(4){
+  left:68%;
+  animation-delay:-2s;
+}
+
+.ray:nth-child(5){
+  left:88%;
+  animation-delay:-5s;
+}
+
 @keyframes rayMove{
+
   0%,100%{
-    transform:
-      translateX(-35px)
-      rotate(9deg);
-    opacity:.12;
-  }
-
-  50%{
-    transform:
-      translateX(40px)
-      rotate(9deg);
-    opacity:.32;
-  }
-}
-
-
-/* =========================================================
-   SCI-FI HUD PARTICLES
-   ========================================================= */
-
-.hud-particles{
-  position:fixed;
-  inset:0;
-  z-index:-15;
-  pointer-events:none;
-}
-
-.hud-particles i{
-  position:absolute;
-
-  width:3px;
-  height:3px;
-
-  border-radius:50%;
-
-  background:var(--cyan);
-
-  box-shadow:
-    0 0 8px var(--cyan),
-    0 0 18px var(--cyan);
-
-  animation:
-    particleMove 5s ease-in-out infinite;
-}
-
-@keyframes particleMove{
-  0%,100%{
-    transform:translateY(0);
     opacity:.15;
+    transform:rotate(12deg) translateX(-40px);
   }
 
   50%{
-    transform:translateY(-35px);
-    opacity:.9;
+    opacity:.7;
+    transform:rotate(12deg) translateX(70px);
   }
+
 }
 
 
 /* =========================================================
    BUBBLES
-   ========================================================= */
+========================================================= */
 
 .bubbles{
-  position:fixed;
+  position:absolute;
   inset:0;
-
-  overflow:hidden;
-
-  pointer-events:none;
-
-  z-index:-10;
 }
 
 .bubble{
   position:absolute;
 
-  bottom:-100px;
-
-  width:var(--size);
-  height:var(--size);
+  border:1px solid rgba(220,255,255,.55);
 
   border-radius:50%;
 
-  border:
-    1px solid
-    rgba(255,255,255,.65);
-
   background:
     radial-gradient(
-      circle at 28% 25%,
-      rgba(255,255,255,.95),
-      rgba(110,239,255,.16) 35%,
-      transparent 70%
+      circle at 30% 25%,
+      rgba(255,255,255,.75),
+      rgba(255,255,255,.08) 25%,
+      transparent 60%
     );
 
   box-shadow:
-    inset 0 0 8px rgba(255,255,255,.25),
-    0 0 14px rgba(0,234,255,.35);
+    inset 0 0 12px rgba(255,255,255,.20),
+    0 0 12px rgba(96,240,255,.18);
 
   animation:
-    bubbleRise var(--time) linear infinite;
-
-  animation-delay:
-    var(--delay);
+    bubbleUp linear infinite;
 }
 
-@keyframes bubbleRise{
+@keyframes bubbleUp{
 
   0%{
-    transform:
-      translate(0,0)
-      scale(.6);
-
+    transform:translateY(110vh) translateX(0);
     opacity:0;
   }
 
@@ -401,22 +286,11 @@ body.day .scifi-grid{
   }
 
   50%{
-    transform:
-      translate(
-        calc(var(--move) * -1),
-        -50vh
-      )
-      scale(1);
+    transform:translateY(50vh) translateX(35px);
   }
 
   100%{
-    transform:
-      translate(
-        var(--move),
-        -120vh
-      )
-      scale(.75);
-
+    transform:translateY(-20vh) translateX(-30px);
     opacity:0;
   }
 
@@ -425,472 +299,1204 @@ body.day .scifi-grid{
 
 /* =========================================================
    FISH
-   แยกแต่ละตัว ไม่ให้ติดกัน
-   ========================================================= */
-
-.sea-life{
-  position:fixed;
-  inset:0;
-
-  z-index:-8;
-
-  overflow:hidden;
-  pointer-events:none;
-}
+========================================================= */
 
 .fish{
   position:absolute;
 
-  display:block;
-
-  font-size:var(--fish-size);
-
-  opacity:.72;
+  font-size:clamp(28px,4vw,55px);
 
   filter:
-    drop-shadow(
-      0 0 8px rgba(0,234,255,.45)
-    );
+    drop-shadow(0 0 8px rgba(80,240,255,.5));
 
   animation:
-    fishMove var(--speed) linear infinite;
+    swim linear infinite;
 
-  animation-delay:
-    var(--delay);
+  opacity:.90;
 }
 
-.fish1{
-  top:16%;
-  left:-12%;
+/* แยกตำแหน่งปลาออกจากกัน */
+
+.fish.f1{
+  top:14%;
+  left:-10%;
+  animation-duration:19s;
 }
 
-.fish2{
-  top:28%;
-  left:-20%;
-}
-
-.fish3{
-  top:41%;
+.fish.f2{
+  top:27%;
   left:-15%;
+  animation-duration:24s;
+  animation-delay:-8s;
 }
 
-.fish4{
-  top:57%;
-  left:-25%;
+.fish.f3{
+  top:42%;
+  left:-12%;
+  animation-duration:21s;
+  animation-delay:-5s;
 }
 
-.fish5{
-  top:71%;
+.fish.f4{
+  top:58%;
+  left:-15%;
+  animation-duration:27s;
+  animation-delay:-13s;
+}
+
+.fish.f5{
+  top:73%;
+  left:-10%;
+  animation-duration:23s;
+  animation-delay:-3s;
+}
+
+.fish.f6{
+  top:86%;
   left:-18%;
+  animation-duration:30s;
+  animation-delay:-16s;
 }
 
-.fish6{
-  top:83%;
-  left:-30%;
+.fish.f7{
+  top:20%;
+  right:-15%;
+  animation:
+    swimReverse 26s linear infinite;
 }
 
-.fish7{
-  top:35%;
-  left:-35%;
+.fish.f8{
+  top:52%;
+  right:-15%;
+  animation:
+    swimReverse 22s linear infinite;
+  animation-delay:-7s;
 }
 
-.fish8{
-  top:64%;
-  left:-40%;
+.fish.f9{
+  top:78%;
+  right:-15%;
+  animation:
+    swimReverse 29s linear infinite;
+  animation-delay:-14s;
 }
 
-@keyframes fishMove{
+@keyframes swim{
 
   0%{
-    transform:
-      translateX(-100px)
-      translateY(0);
+    transform:translateX(-15vw) translateY(0);
   }
 
-  20%{
-    transform:
-      translateX(20vw)
-      translateY(-15px);
+  25%{
+    transform:translateX(30vw) translateY(-25px);
   }
 
-  40%{
-    transform:
-      translateX(42vw)
-      translateY(14px);
+  50%{
+    transform:translateX(60vw) translateY(20px);
   }
 
-  60%{
-    transform:
-      translateX(64vw)
-      translateY(-12px);
-  }
-
-  80%{
-    transform:
-      translateX(84vw)
-      translateY(12px);
+  75%{
+    transform:translateX(90vw) translateY(-20px);
   }
 
   100%{
-    transform:
-      translateX(125vw)
-      translateY(0);
+    transform:translateX(120vw) translateY(10px);
   }
+
+}
+
+@keyframes swimReverse{
+
+  0%{
+    transform:translateX(15vw) translateY(0) scaleX(-1);
+  }
+
+  25%{
+    transform:translateX(-30vw) translateY(20px) scaleX(-1);
+  }
+
+  50%{
+    transform:translateX(-60vw) translateY(-20px) scaleX(-1);
+  }
+
+  75%{
+    transform:translateX(-90vw) translateY(20px) scaleX(-1);
+  }
+
+  100%{
+    transform:translateX(-120vw) translateY(-10px) scaleX(-1);
+  }
+
 }
 
 
 /* =========================================================
    JELLYFISH
-   ========================================================= */
+========================================================= */
 
-.jellyfish{
+.jelly{
   position:absolute;
 
-  font-size:var(--jelly-size);
+  font-size:clamp(32px,5vw,65px);
 
-  opacity:.62;
+  opacity:.60;
 
   filter:
-    drop-shadow(
-      0 0 15px #a965ff
-    )
-    drop-shadow(
-      0 0 35px #624cff
-    );
+    drop-shadow(0 0 15px #b56cff)
+    drop-shadow(0 0 30px #42eaff);
 
   animation:
-    jellyMove var(--speed) ease-in-out infinite;
-
-  animation-delay:
-    var(--delay);
+    jellyMove 11s ease-in-out infinite;
 }
 
-.jelly1{
-  right:5%;
-  top:19%;
+.jelly.j1{
+  left:7%;
+  top:25%;
 }
 
-.jelly2{
-  right:18%;
-  top:49%;
+.jelly.j2{
+  right:8%;
+  top:35%;
+  animation-delay:-4s;
 }
 
-.jelly3{
-  left:4%;
-  top:56%;
+.jelly.j3{
+  left:25%;
+  top:68%;
+  animation-delay:-7s;
 }
 
-.jelly4{
-  right:40%;
-  top:33%;
+.jelly.j4{
+  right:27%;
+  top:15%;
+  animation-delay:-2s;
 }
 
 @keyframes jellyMove{
 
   0%,100%{
-    transform:
-      translateY(0)
-      rotate(-5deg);
+    transform:translateY(0) translateX(0);
   }
 
   50%{
-    transform:
-      translateY(-45px)
-      rotate(6deg);
+    transform:translateY(-70px) translateX(35px);
   }
+
 }
 
 
 /* =========================================================
-   HEADER
-   ========================================================= */
+   SEABED
+========================================================= */
 
-header{
-  position:sticky;
-  top:14px;
+.seabed{
+  position:absolute;
 
-  z-index:1000;
+  bottom:0;
+  left:0;
 
-  width:min(1200px,94%);
+  width:100%;
+  height:230px;
 
-  min-height:80px;
+  background:
+    radial-gradient(
+      ellipse at 15% 60%,
+      #a86d5c55,
+      transparent 20%
+    ),
+    radial-gradient(
+      ellipse at 45% 70%,
+      #7044a755,
+      transparent 22%
+    ),
+    radial-gradient(
+      ellipse at 80% 65%,
+      #4274a855,
+      transparent 22%
+    ),
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(3,23,30,.3) 25%,
+      rgba(2,15,23,.95)
+    );
 
-  margin:
-    14px auto 0;
+}
 
-  padding:
-    11px 14px;
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+/* =========================================================
+   ROCKS
+========================================================= */
 
-  border-radius:25px;
+.rock{
+  position:absolute;
+  bottom:35px;
 
-  border:
-    1px solid
-    rgba(155,247,255,.38);
+  width:90px;
+  height:55px;
+
+  border-radius:
+    55% 45% 40% 60% /
+    65% 55% 45% 35%;
+
+  background:
+    radial-gradient(
+      circle at 35% 25%,
+      #87949c,
+      #3c535d 45%,
+      #172b34
+    );
+
+  box-shadow:
+    inset -10px -10px 15px #0007,
+    0 0 20px #0006;
+}
+
+.rock.r1{
+  left:5%;
+  transform:scale(1.3);
+}
+
+.rock.r2{
+  left:28%;
+  transform:scale(.8);
+}
+
+.rock.r3{
+  left:51%;
+  transform:scale(1.6);
+}
+
+.rock.r4{
+  right:22%;
+  transform:scale(.9);
+}
+
+.rock.r5{
+  right:4%;
+  transform:scale(1.4);
+}
+
+
+/* =========================================================
+   CORAL
+========================================================= */
+
+.coral{
+  position:absolute;
+
+  bottom:20px;
+
+  width:100px;
+  height:150px;
+}
+
+.coral span{
+  position:absolute;
+
+  bottom:0;
+
+  width:18px;
+  height:100px;
+
+  border-radius:50px 50px 15px 15px;
+
+  transform-origin:bottom;
+
+  animation:
+    coralWave 4s ease-in-out infinite;
+}
+
+.coral span:nth-child(1){
+  left:10px;
+  height:110px;
+}
+
+.coral span:nth-child(2){
+  left:35px;
+  height:145px;
+  animation-delay:-1s;
+}
+
+.coral span:nth-child(3){
+  left:60px;
+  height:90px;
+  animation-delay:-2s;
+}
+
+.coral span:nth-child(4){
+  left:80px;
+  height:125px;
+  animation-delay:-3s;
+}
+
+.coral.orange span{
+  background:linear-gradient(
+    180deg,
+    #ffb05e,
+    #ff6d32,
+    #c93724
+  );
+
+  box-shadow:
+    0 0 15px #ff7138;
+}
+
+.coral.red span{
+  background:linear-gradient(
+    180deg,
+    #ff5d75,
+    #e51d48,
+    #8b163c
+  );
+
+  box-shadow:
+    0 0 15px #ff3860;
+}
+
+.coral.purple span{
+  background:linear-gradient(
+    180deg,
+    #e18cff,
+    #994bff,
+    #5124a5
+  );
+
+  box-shadow:
+    0 0 18px #ad5cff;
+}
+
+.coral.blue span{
+  background:linear-gradient(
+    180deg,
+    #65ecff,
+    #238dff,
+    #164fc7
+  );
+
+  box-shadow:
+    0 0 18px #28caff;
+}
+
+.coral.white span{
+  background:linear-gradient(
+    180deg,
+    #ffffff,
+    #ccecff,
+    #7da5b8
+  );
+
+  box-shadow:
+    0 0 18px #d9faff;
+}
+
+@keyframes coralWave{
+
+  0%,100%{
+    transform:rotate(-5deg);
+  }
+
+  50%{
+    transform:rotate(8deg);
+  }
+
+}
+
+
+/* =========================================================
+   SEAWEED
+========================================================= */
+
+.seaweed{
+  position:absolute;
+  bottom:0;
+
+  width:100px;
+  height:170px;
+}
+
+.seaweed i{
+  position:absolute;
+
+  bottom:0;
+
+  width:13px;
+
+  border-radius:
+    100% 0 100% 0;
+
+  transform-origin:bottom;
 
   background:
     linear-gradient(
-      135deg,
-      rgba(255,255,255,.15),
-      var(--glass)
+      180deg,
+      #75ffad,
+      #159d72,
+      #075d55
     );
 
-  backdrop-filter:
-    blur(20px)
-    saturate(150%);
-
   box-shadow:
-    0 15px 50px var(--shadow),
-    0 0 30px rgba(0,234,255,.10),
-    inset 0 1px 0 rgba(255,255,255,.30);
+    0 0 10px #26e0a566;
+
+  animation:
+    weedWave 3.5s ease-in-out infinite;
 }
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
+.seaweed i:nth-child(1){
+  left:5px;
+  height:120px;
+}
 
-  padding:7px 12px;
+.seaweed i:nth-child(2){
+  left:30px;
+  height:165px;
+  animation-delay:-1s;
+}
 
-  border-radius:15px;
+.seaweed i:nth-child(3){
+  left:55px;
+  height:135px;
+  animation-delay:-2s;
+}
 
-  border:
-    1px solid
-    rgba(103,232,249,.35);
+.seaweed i:nth-child(4){
+  left:75px;
+  height:100px;
+  animation-delay:-.5s;
+}
+
+@keyframes weedWave{
+
+  0%,100%{
+    transform:rotate(-8deg);
+  }
+
+  50%{
+    transform:rotate(10deg);
+  }
+
+}
+
+
+/* =========================================================
+   DAY MODE OCEAN
+========================================================= */
+
+body.day .ocean-bg{
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(255,255,255,.22),
+      transparent 35%
+    );
+}
+
+body.day .jelly{
+  filter:
+    drop-shadow(0 0 10px #ff8ed9)
+    drop-shadow(0 0 18px #68efff);
+
+  opacity:.72;
+}
+
+body.day .bubble{
+  border-color:#ffffffaa;
+}
+
+
+/* =========================================================
+   NIGHT SCI-FI OCEAN
+========================================================= */
+
+body:not(.day) .ocean-bg:after{
+
+  content:"";
+
+  position:absolute;
+  inset:0;
 
   background:
-    rgba(255,255,255,.08);
+
+    linear-gradient(
+      90deg,
+      transparent 48%,
+      rgba(0,255,255,.04) 50%,
+      transparent 52%
+    ),
+
+    radial-gradient(
+      circle at 50% 50%,
+      transparent 35%,
+      rgba(0,255,255,.06)
+    );
+
+  pointer-events:none;
 }
 
-.logo-icon{
-  width:46px;
-  height:46px;
+body:not(.day) .jelly{
+  opacity:.48;
+
+  filter:
+    drop-shadow(0 0 15px #00f6ff)
+    drop-shadow(0 0 35px #7b3dff);
+}
+
+
+/* =========================================================
+   SCI-FI GRID
+========================================================= */
+
+body:not(.day) .seabed{
+
+  background:
+
+    linear-gradient(
+      90deg,
+      transparent 49%,
+      rgba(0,255,255,.10) 50%,
+      transparent 51%
+    ),
+
+    linear-gradient(
+      rgba(0,255,255,.05) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(0,255,255,.05) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      180deg,
+      transparent,
+      #010b16
+    );
+
+  background-size:
+    auto,
+    45px 45px,
+    45px 45px,
+    auto;
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+#loader{
+
+  position:fixed;
+  inset:0;
+
+  z-index:99999;
 
   display:grid;
   place-items:center;
 
-  border-radius:14px;
+  overflow:hidden;
 
-  font-size:27px;
+  background:
+
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(0,246,255,.20),
+      transparent 18%
+    ),
+
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(128,55,255,.18),
+      transparent 25%
+    ),
+
+    linear-gradient(
+      180deg,
+      #010713,
+      #00253a,
+      #003f55
+    );
+
+  transition:
+    opacity .9s,
+    visibility .9s;
+}
+
+#loader.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.loader-bg{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+
+.loader-bg span{
+  position:absolute;
+  font-size:35px;
+
+  animation:
+    loaderFish 12s linear infinite;
+}
+
+.loader-bg span:nth-child(1){
+  top:15%;
+  left:-10%;
+}
+
+.loader-bg span:nth-child(2){
+  top:35%;
+  left:-15%;
+  animation-delay:-4s;
+}
+
+.loader-bg span:nth-child(3){
+  top:60%;
+  left:-12%;
+  animation-delay:-8s;
+}
+
+.loader-bg span:nth-child(4){
+  top:78%;
+  left:-20%;
+  animation-delay:-2s;
+}
+
+.loader-bg span:nth-child(5){
+  top:25%;
+  right:10%;
+  animation-delay:-6s;
+}
+
+@keyframes loaderFish{
+
+  0%{
+    transform:translateX(-10vw);
+    opacity:0;
+  }
+
+  15%,80%{
+    opacity:.8;
+  }
+
+  100%{
+    transform:translateX(120vw);
+    opacity:0;
+  }
+
+}
+
+.loader-content{
+  position:relative;
+  z-index:5;
+
+  text-align:center;
+
+  width:min(720px,92vw);
+}
+
+.loader-orbit{
+
+  width:155px;
+  height:155px;
+
+  margin:auto;
+
+  border:
+    2px solid #67e8f977;
+
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  position:relative;
+
+  box-shadow:
+    0 0 30px #42a5f566,
+    0 0 100px #00ffe033;
+
+  animation:
+    loaderPulse 2s infinite;
+}
+
+.loader-orbit:before,
+.loader-orbit:after{
+
+  content:"";
+
+  position:absolute;
+
+  border:
+    1px solid #67e8f94d;
+
+  border-radius:50%;
+}
+
+.loader-orbit:before{
+  inset:-22px;
+  animation:
+    spin 8s linear infinite;
+}
+
+.loader-orbit:after{
+  inset:-44px;
+  border-style:dashed;
+  animation:
+    spin 12s linear infinite reverse;
+}
+
+.loader-wave{
+
+  font-size:66px;
+
+  filter:
+    drop-shadow(0 0 18px #42a5f5);
+
+  animation:
+    float 2.8s infinite;
+}
+
+.loader-fish{
+
+  position:absolute;
+
+  font-size:25px;
+
+  animation:
+    loaderSwim 4s linear infinite;
+}
+
+.loader-fish.a{
+  left:-18px;
+  top:12px;
+}
+
+.loader-fish.b{
+  right:-20px;
+  bottom:16px;
+  animation-delay:-2s;
+}
+
+.loader-content h1{
+
+  margin-top:32px;
+
+  font-size:
+    clamp(26px,5vw,57px);
+
+  letter-spacing:3px;
+
+  color:#eaffff;
+
+  text-shadow:
+    0 0 15px #42a5f5,
+    0 0 42px #42a5f5;
+}
+
+.loader-content p{
+  color:#8ecbdc;
+  margin-top:10px;
+}
+
+.loader-line{
+
+  width:min(330px,70vw);
+
+  height:4px;
+
+  margin:25px auto 0;
+
+  background:#fff1;
+
+  border-radius:20px;
+
+  overflow:hidden;
+}
+
+.loader-line span{
+
+  display:block;
+
+  height:100%;
+
+  width:30%;
 
   background:
     linear-gradient(
-      145deg,
-      #36ddff,
-      #2870ff
+      90deg,
+      transparent,
+      #42a5f5,
+      #8fffe0,
+      transparent
     );
 
-  box-shadow:
-    0 0 20px rgba(0,234,255,.5);
+  animation:
+    loaderLine 1.25s infinite;
 }
 
-.logo strong{
-  font-size:17px;
-}
+.loader-dots{
 
-.header-actions{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
+  margin-top:12px;
 
-.mode-btn,
-.menu-btn{
-  color:var(--text);
+  color:#67e8f9;
 
-  background:
-    rgba(255,255,255,.08);
+  letter-spacing:8px;
 
-  border:
-    1px solid
-    rgba(255,255,255,.25);
-
-  border-radius:17px;
-
-  transition:.3s;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.20);
-}
-
-.mode-btn{
-  padding:
-    11px 15px;
-}
-
-.menu-btn{
-  width:51px;
-  height:51px;
-
-  font-size:24px;
-}
-
-.mode-btn:hover,
-.menu-btn:hover{
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 0 25px rgba(0,234,255,.30);
+  animation:
+    blink 1s infinite;
 }
 
 
 /* =========================================================
-   MOBILE MENU
-   ========================================================= */
+   KEYFRAMES
+========================================================= */
 
-.mobile-menu{
+@keyframes loaderPulse{
+
+  50%{
+    box-shadow:
+      0 0 65px #42a5f599,
+      0 0 130px #00ffe044;
+  }
+
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes float{
+
+  50%{
+    transform:translateY(-12px);
+  }
+
+}
+
+@keyframes loaderSwim{
+
+  0%{
+    transform:translateX(-35px);
+    opacity:0;
+  }
+
+  25%,70%{
+    opacity:1;
+  }
+
+  100%{
+    transform:translateX(75px);
+    opacity:0;
+  }
+
+}
+
+@keyframes loaderLine{
+
+  from{
+    transform:translateX(-190%);
+  }
+
+  to{
+    transform:translateX(520%);
+  }
+
+}
+
+@keyframes blink{
+
+  50%{
+    opacity:.25;
+  }
+
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+
   position:fixed;
 
-  top:105px;
-  right:3%;
+  top:18px;
+  left:50%;
 
-  width:min(300px,90vw);
+  transform:translateX(-50%);
 
-  padding:13px;
+  width:min(1180px,94%);
 
-  z-index:999;
+  padding:10px 14px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  z-index:1000;
+
+  border:
+    1px solid var(--border);
 
   border-radius:22px;
 
   background:
-    rgba(1,17,35,.91);
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.18),
+      var(--glass)
+    );
 
-  backdrop-filter:blur(22px);
-
-  border:
-    1px solid
-    rgba(0,234,255,.40);
+  backdrop-filter:blur(18px);
 
   box-shadow:
-    0 25px 70px rgba(0,0,0,.5),
-    0 0 35px rgba(0,234,255,.18);
+    0 15px 50px var(--shadow),
+    inset 0 0 25px rgba(255,255,255,.08);
 
-  transform:
-    translateY(-15px)
-    scale(.95);
+}
 
-  opacity:0;
-  visibility:hidden;
+
+/* logo */
+
+.logo{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  padding:8px 14px;
+
+  border-radius:15px;
+
+  color:var(--text);
+
+  text-decoration:none;
+
+  font-weight:900;
+
+  background:
+    rgba(255,255,255,.13);
+
+  border:
+    1px solid var(--border);
+
+  box-shadow:
+    0 0 20px rgba(0,230,255,.10);
+}
+
+.logo-icon{
+  font-size:28px;
+}
+
+
+/* nav buttons */
+
+.nav-links{
+
+  display:flex;
+
+  gap:5px;
+
+  align-items:center;
+}
+
+.nav-btn{
+
+  border:0;
+
+  background:transparent;
+
+  color:var(--muted);
+
+  padding:10px 12px;
+
+  border-radius:12px;
 
   transition:.3s;
 }
 
-body.day .mobile-menu{
+.nav-btn:hover,
+.nav-btn.active{
+
+  color:var(--text);
+
   background:
-    rgba(240,253,255,.94);
+    rgba(65,232,255,.15);
+
+  box-shadow:
+    0 0 18px rgba(65,232,255,.15);
 }
 
-.mobile-menu.show{
-  transform:
-    translateY(0)
-    scale(1);
 
-  opacity:1;
-  visibility:visible;
-}
+/* mode */
 
-.mobile-menu a{
-  display:block;
+.mode-btn{
 
-  padding:14px;
+  border:
+    1px solid var(--border);
+
+  background:
+    rgba(255,255,255,.10);
+
+  color:var(--text);
 
   border-radius:14px;
 
-  transition:.25s;
+  padding:10px 14px;
+
+  transition:.3s;
 }
 
-.mobile-menu a:hover{
-  background:
-    rgba(0,234,255,.14);
+.mode-btn:hover{
 
-  transform:
-    translateX(5px);
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 0 20px rgba(72,236,255,.25);
+}
+
+
+/* mobile */
+
+.menu-btn{
+  display:none;
+
+  border:
+    1px solid var(--border);
+
+  background:
+    rgba(255,255,255,.10);
+
+  color:var(--text);
+
+  padding:10px 13px;
+
+  border-radius:13px;
 }
 
 
 /* =========================================================
-   MAIN
-   ========================================================= */
+   PAGE SYSTEM
+========================================================= */
 
 main{
   position:relative;
   z-index:2;
+}
 
-  width:min(1200px,94%);
+.page{
 
-  margin:auto;
+  min-height:100vh;
 
-  padding-bottom:350px;
+  padding:
+    145px 6vw 120px;
+
+  display:none;
+
+  animation:
+    pageIn .7s ease;
+}
+
+.page.active{
+  display:block;
+}
+
+@keyframes pageIn{
+
+  from{
+    opacity:0;
+    transform:translateY(25px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
 }
 
 
 /* =========================================================
    HERO
-   ========================================================= */
+========================================================= */
 
 .hero{
-  min-height:430px;
+
+  min-height:
+    calc(100vh - 150px);
 
   display:flex;
+
   flex-direction:column;
 
-  justify-content:center;
   align-items:center;
+
+  justify-content:center;
 
   text-align:center;
 
-  padding:
-    80px 20px 40px;
 }
 
-.page-number{
-  color:var(--cyan2);
+.eyebrow{
+
+  color:var(--cyan);
+
+  letter-spacing:5px;
 
   font-size:13px;
 
-  font-weight:900;
-
-  letter-spacing:4px;
+  font-weight:800;
 
   margin-bottom:15px;
-
-  text-shadow:
-    0 0 15px var(--cyan);
 }
 
 .hero h1{
+
   font-size:
-    clamp(42px,8vw,80px);
+    clamp(45px,9vw,100px);
 
-  line-height:1.15;
+  line-height:1.05;
 
-  margin-bottom:20px;
+  background:
+    linear-gradient(
+      90deg,
+      var(--cyan),
+      var(--mint),
+      var(--pink),
+      var(--purple)
+    );
 
-  color:var(--text);
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:transparent;
 
   text-shadow:
-    0 0 15px rgba(0,234,255,.65),
-    0 0 40px rgba(0,234,255,.25);
-}
+    0 0 35px rgba(0,238,255,.25);
 
-.hero h1 span{
-  filter:
-    drop-shadow(
-      0 0 10px rgba(255,211,0,.55)
-    );
 }
 
 .hero p{
-  max-width:800px;
+
+  max-width:700px;
+
+  margin-top:22px;
 
   color:var(--muted);
 
   font-size:
-    clamp(15px,2vw,20px);
+    clamp(16px,2vw,21px);
 
   line-height:1.8;
 }
@@ -898,50 +1504,73 @@ main{
 
 /* =========================================================
    SECTION TITLE
-   ========================================================= */
+========================================================= */
 
 .section-title{
-  margin:
-    100px 0 30px;
 
   text-align:center;
+
+  margin-bottom:45px;
 }
 
-.section-title small{
-  display:block;
+.section-title .small{
 
-  color:var(--cyan2);
+  color:var(--cyan);
 
-  letter-spacing:3px;
+  letter-spacing:4px;
 
-  font-weight:800;
+  font-size:12px;
 
-  margin-bottom:7px;
+  font-weight:900;
 }
 
 .section-title h2{
+
+  margin-top:10px;
+
   font-size:
-    clamp(30px,5vw,50px);
+    clamp(32px,6vw,65px);
+
+  color:var(--text);
 
   text-shadow:
-    0 0 20px rgba(0,234,255,.3);
+    0 0 25px rgba(0,239,255,.18);
+}
+
+.section-title p{
+
+  margin-top:12px;
+
+  color:var(--muted);
+
 }
 
 
 /* =========================================================
-   GLASS CARD BASE
-   ========================================================= */
+   GLASS CARD
+========================================================= */
 
-.glass-card{
+.cards{
+
+  width:min(1050px,100%);
+
+  margin:auto;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:25px;
+}
+
+.card{
+
   position:relative;
 
-  overflow:hidden;
+  padding:30px;
 
-  border-radius:30px;
-
-  border:
-    1px solid
-    var(--border);
+  border-radius:28px;
 
   background:
     linear-gradient(
@@ -950,346 +1579,391 @@ main{
       var(--glass2)
     );
 
+  border:
+    1px solid var(--border);
+
   backdrop-filter:
-    blur(18px)
-    saturate(140%);
+    blur(18px);
 
   box-shadow:
-    0 18px 55px var(--shadow),
-    0 0 25px rgba(0,234,255,.10),
-    inset 0 1px 0 rgba(255,255,255,.28);
+    0 20px 60px var(--shadow),
+    inset 0 0 25px rgba(255,255,255,.07);
+
+  overflow:hidden;
 
   transition:
-    transform .35s,
-    box-shadow .35s,
-    border-color .35s;
+    transform .4s,
+    box-shadow .4s;
 }
 
-.glass-card:hover{
-  transform:
-    translateY(-5px);
+.card:hover{
 
-  border-color:
-    rgba(103,245,255,.78);
+  transform:
+    translateY(-8px)
+    perspective(700px)
+    rotateX(2deg)
+    rotateY(-2deg);
 
   box-shadow:
-    0 25px 65px var(--shadow),
-    0 0 40px rgba(0,234,255,.22),
-    inset 0 1px 0 rgba(255,255,255,.38);
+    0 25px 70px var(--shadow),
+    0 0 35px rgba(60,237,255,.16),
+    inset 0 0 30px rgba(255,255,255,.09);
 }
 
 
-/* =========================================================
-   CARD LIGHT
-   ========================================================= */
+/* neon bubbles on card */
 
-.glass-card::before{
+.card:before{
+
   content:"";
 
   position:absolute;
 
-  left:7%;
-  right:7%;
-  top:0;
+  width:110px;
+  height:110px;
 
-  height:2px;
+  right:-35px;
+  top:-35px;
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.9),
-      transparent
-    );
+  border:
+    1px solid rgba(255,255,255,.28);
 
-  opacity:.65;
+  border-radius:50%;
+
+  box-shadow:
+    inset 0 0 20px rgba(255,255,255,.12),
+    0 0 25px rgba(73,238,255,.15);
+}
+
+.card:after{
+
+  content:"";
+
+  position:absolute;
+
+  width:35px;
+  height:35px;
+
+  right:70px;
+  top:35px;
+
+  border:
+    1px solid rgba(255,255,255,.35);
+
+  border-radius:50%;
+
+  box-shadow:
+    0 0 15px rgba(255,255,255,.12);
+}
+
+.card-icon{
+
+  font-size:42px;
+
+  margin-bottom:16px;
+
+  filter:
+    drop-shadow(0 0 12px rgba(72,239,255,.45));
+}
+
+.card h3{
+
+  font-size:24px;
+
+  color:var(--text);
+
+  margin-bottom:10px;
+}
+
+.card p{
+
+  color:var(--muted);
+
+  line-height:1.8;
 }
 
 
 /* =========================================================
-   PERSONAL PROFILE
-   ========================================================= */
+   HOME
+========================================================= */
 
-.profile-card{
+.home-ocean{
+
+  margin:
+    35px auto 0;
+
+  width:min(950px,100%);
+
+  padding:30px;
+
+  text-align:center;
+
+  border-radius:35px;
+
+  background:
+    rgba(255,255,255,.08);
+
+  border:
+    1px solid var(--border);
+
+  backdrop-filter:blur(15px);
+
+  box-shadow:
+    0 0 40px rgba(0,238,255,.10);
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.profile{
+
+  width:min(1000px,100%);
+
+  margin:auto;
+
   display:grid;
 
   grid-template-columns:
     280px 1fr;
 
-  gap:35px;
+  gap:30px;
 
-  padding:35px;
-
-  align-items:center;
+  align-items:stretch;
 }
 
 .profile-photo{
-  width:230px;
-  height:230px;
 
-  margin:auto;
+  min-height:350px;
 
-  border-radius:50%;
+  border-radius:30px;
 
-  display:grid;
-  place-items:center;
-
-  font-size:95px;
+  border:
+    1px solid var(--border);
 
   background:
+
     radial-gradient(
       circle,
-      #50eaff,
-      #1677db 48%,
-      #151d75 100%
-    );
+      rgba(82,235,255,.28),
+      transparent 55%
+    ),
 
-  border:
-    4px solid
-    rgba(144,249,255,.65);
+    var(--glass);
 
-  box-shadow:
-    0 0 20px var(--cyan),
-    0 0 60px rgba(0,234,255,.38),
-    inset 0 0 30px rgba(255,255,255,.25);
-
-  animation:
-    profileGlow 3s ease-in-out infinite;
-}
-
-@keyframes profileGlow{
-  50%{
-    box-shadow:
-      0 0 30px var(--cyan),
-      0 0 85px rgba(0,234,255,.50),
-      inset 0 0 40px rgba(255,255,255,.30);
-  }
-}
-
-.profile-content{
-  padding:10px;
-}
-
-.profile-content h3{
-  font-size:
-    clamp(27px,4vw,42px);
-
-  margin-bottom:12px;
-}
-
-.profile-content p{
-  color:var(--muted);
-
-  line-height:1.9;
-
-  font-size:17px;
-}
-
-
-/* =========================================================
-   PERSONAL DATA
-   ========================================================= */
-
-.personal-grid{
   display:grid;
 
-  grid-template-columns:
-    repeat(2,1fr);
+  place-items:center;
 
-  gap:20px;
+  backdrop-filter:blur(15px);
 
-  margin-top:25px;
+  box-shadow:
+    0 0 40px rgba(0,240,255,.10);
 }
 
-.personal-item{
-  padding:22px;
+.profile-photo span{
 
-  border-radius:23px;
+  font-size:110px;
 
-  border:
-    1px solid
-    rgba(103,232,249,.22);
+  filter:
+    drop-shadow(0 0 25px var(--cyan));
+
+}
+
+.info-list{
+
+  display:grid;
+
+  gap:15px;
+}
+
+.info-row{
+
+  padding:20px;
+
+  border-radius:20px;
 
   background:
-    rgba(255,255,255,.06);
+    rgba(255,255,255,.08);
+
+  border:
+    1px solid var(--border);
+
+  box-shadow:
+    inset 0 0 18px rgba(255,255,255,.04);
 }
 
-.personal-item .icon{
-  font-size:30px;
+.info-row b{
 
   display:block;
 
-  margin-bottom:8px;
-}
-
-.personal-item strong{
-  display:block;
-
-  font-size:18px;
+  color:var(--cyan);
 
   margin-bottom:5px;
 }
 
-.personal-item span{
-  color:var(--muted);
+.info-row span{
+  color:var(--text);
 }
 
 
 /* =========================================================
-   EDUCATION
-   ========================================================= */
+   EDUCATION TIMELINE
+========================================================= */
 
-.education{
+.timeline{
+
+  width:min(1000px,100%);
+
+  margin:auto;
+
   display:grid;
 
   gap:25px;
 }
 
 .edu-card{
-  min-height:155px;
 
-  padding:
-    28px 30px;
-}
-
-.edu-content{
   position:relative;
-  z-index:2;
+
+  padding:30px 35px;
+
+  border-radius:28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--glass),
+      var(--glass2)
+    );
+
+  border:
+    1px solid var(--border);
+
+  backdrop-filter:blur(15px);
+
+  box-shadow:
+    0 15px 45px var(--shadow),
+    0 0 20px rgba(0,230,255,.06);
+
+  transition:.4s;
 }
 
-.edu-label{
-  color:var(--cyan2);
+.edu-card:hover{
 
-  font-weight:900;
+  transform:
+    translateX(8px);
+
+  box-shadow:
+    0 15px 55px var(--shadow),
+    0 0 30px rgba(0,238,255,.16);
+}
+
+.edu-level{
+
+  color:var(--cyan);
 
   font-size:14px;
 
-  margin-bottom:7px;
-}
-
-.edu-title{
-  font-size:
-    clamp(23px,3vw,31px);
-
   font-weight:900;
 
-  margin-bottom:7px;
+  margin-bottom:10px;
 }
 
-.edu-desc{
+.edu-card h3{
+
+  font-size:27px;
+
+  margin-bottom:10px;
+
+  color:var(--text);
+}
+
+.edu-card p{
+
   color:var(--muted);
 
-  font-size:
-    clamp(14px,2vw,17px);
-
   line-height:1.8;
-}
-
-.edu-bubbles{
-  position:absolute;
-
-  right:25px;
-  top:18px;
-
-  width:130px;
-  height:100px;
-
-  opacity:.65;
-}
-
-.edu-bubbles span{
-  position:absolute;
-
-  width:var(--s);
-  height:var(--s);
-
-  border-radius:50%;
-
-  border:
-    1px solid
-    rgba(255,255,255,.65);
-
-  background:
-    radial-gradient(
-      circle at 30% 25%,
-      white,
-      rgba(0,234,255,.12) 40%,
-      transparent
-    );
-
-  box-shadow:
-    0 0 13px rgba(0,234,255,.30);
-
-  animation:
-    cardBubble 4s ease-in-out infinite;
-}
-
-.edu-bubbles span:nth-child(1){
-  right:5px;
-  top:10px;
-}
-
-.edu-bubbles span:nth-child(2){
-  right:50px;
-  top:50px;
-  animation-delay:-1.5s;
-}
-
-.edu-bubbles span:nth-child(3){
-  right:80px;
-  top:18px;
-  animation-delay:-2.5s;
-}
-
-@keyframes cardBubble{
-  50%{
-    transform:
-      translateY(-13px);
-  }
 }
 
 
 /* =========================================================
    HOBBIES
-   ========================================================= */
+========================================================= */
 
 .hobby-grid{
+
+  width:min(1050px,100%);
+
+  margin:auto;
+
   display:grid;
 
   grid-template-columns:
     repeat(3,1fr);
 
-  gap:20px;
+  gap:22px;
 }
 
-.hobby-card{
-  padding:30px 20px;
+.hobby{
+
+  min-height:220px;
+
+  padding:30px;
+
+  border-radius:28px;
 
   text-align:center;
 
-  min-height:180px;
+  background:
+    linear-gradient(
+      145deg,
+      var(--glass),
+      var(--glass2)
+    );
+
+  border:
+    1px solid var(--border);
+
+  backdrop-filter:blur(15px);
+
+  transition:.4s;
+
+  box-shadow:
+    0 15px 45px var(--shadow);
+}
+
+.hobby:hover{
+
+  transform:
+    translateY(-10px)
+    rotate(-1deg);
+
+  box-shadow:
+    0 20px 55px var(--shadow),
+    0 0 30px rgba(0,235,255,.15);
 }
 
 .hobby-icon{
-  font-size:55px;
 
-  display:block;
+  font-size:65px;
 
-  margin-bottom:12px;
+  margin-bottom:15px;
 
   filter:
-    drop-shadow(
-      0 0 10px rgba(0,234,255,.4)
-    );
+    drop-shadow(0 0 14px rgba(0,238,255,.35));
 }
 
-.hobby-card h3{
-  margin-bottom:7px;
+.hobby h3{
 
-  font-size:21px;
+  color:var(--text);
+
+  margin-bottom:8px;
 }
 
-.hobby-card p{
+.hobby p{
+
   color:var(--muted);
 
   line-height:1.7;
@@ -1298,36 +1972,77 @@ main{
 
 /* =========================================================
    CONTACT
-   ========================================================= */
+========================================================= */
 
 .contact-grid{
+
+  width:min(900px,100%);
+
+  margin:auto;
+
   display:grid;
 
   grid-template-columns:
-    repeat(3,1fr);
+    repeat(2,1fr);
 
-  gap:20px;
+  gap:22px;
 }
 
-.contact-card{
-  padding:28px 20px;
+.contact{
 
-  text-align:center;
+  padding:30px;
+
+  border-radius:27px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--glass),
+      var(--glass2)
+    );
+
+  border:
+    1px solid var(--border);
+
+  backdrop-filter:blur(18px);
+
+  transition:.35s;
+
+  text-decoration:none;
+
+  color:inherit;
+
+  box-shadow:
+    0 15px 50px var(--shadow);
+}
+
+.contact:hover{
+
+  transform:
+    translateY(-7px)
+    scale(1.02);
+
+  box-shadow:
+    0 20px 55px var(--shadow),
+    0 0 30px rgba(0,238,255,.16);
 }
 
 .contact-icon{
+
   font-size:45px;
 
-  margin-bottom:12px;
-
-  display:block;
+  margin-bottom:15px;
 }
 
-.contact-card h3{
-  margin-bottom:8px;
+.contact h3{
+
+  color:var(--text);
+
+  margin-bottom:7px;
 }
 
-.contact-card p{
+.contact p{
+
   color:var(--muted);
 
   word-break:break-word;
@@ -1335,571 +2050,176 @@ main{
 
 
 /* =========================================================
-   OCEAN QUOTE
-   ========================================================= */
-
-.quote{
-  margin-top:70px;
-
-  padding:50px 25px;
-
-  text-align:center;
-}
-
-.quote .wave{
-  font-size:50px;
-
-  margin-bottom:12px;
-}
-
-.quote h2{
-  font-size:
-    clamp(24px,4vw,42px);
-
-  margin-bottom:10px;
-}
-
-.quote p{
-  color:var(--muted);
-}
-
-
-/* =========================================================
-   OCEAN FLOOR
-   ========================================================= */
-
-.ocean-floor{
-  position:fixed;
-
-  left:0;
-  right:0;
-  bottom:0;
-
-  height:260px;
-
-  z-index:-4;
-
-  pointer-events:none;
-
-  overflow:hidden;
-
-  background:
-    linear-gradient(
-      180deg,
-      transparent,
-      rgba(0,25,40,.30) 30%,
-      rgba(0,13,23,.92) 100%
-    );
-}
-
-
-/* =========================================================
-   ROCKS
-   ========================================================= */
-
-.rock{
-  position:absolute;
-
-  bottom:0;
-
-  width:140px;
-  height:85px;
-
-  border-radius:
-    60% 45% 20% 20%;
-
-  background:
-    radial-gradient(
-      circle at 35% 25%,
-      #637d8a,
-      #29434f 45%,
-      #10212b 78%
-    );
-
-  box-shadow:
-    inset -15px -12px 20px rgba(0,0,0,.65),
-    0 -5px 25px rgba(0,234,255,.12);
-}
-
-.rock1{
-  left:0;
-  transform:rotate(-8deg);
-}
-
-.rock2{
-  left:24%;
-  width:105px;
-  height:70px;
-  transform:rotate(10deg);
-}
-
-.rock3{
-  left:48%;
-  width:180px;
-  height:95px;
-  transform:rotate(-5deg);
-}
-
-.rock4{
-  right:17%;
-  width:150px;
-  height:90px;
-  transform:rotate(-12deg);
-}
-
-.rock5{
-  right:0;
-  width:120px;
-  height:80px;
-  transform:rotate(9deg);
-}
-
-
-/* =========================================================
-   CORAL SYSTEM
-   ========================================================= */
-
-.coral{
-  position:absolute;
-
-  bottom:0;
-
-  width:110px;
-  height:170px;
-
-  transform-origin:bottom center;
-
-  filter:
-    drop-shadow(
-      0 0 10px currentColor
-    );
-}
-
-.coral::before,
-.coral::after{
-  content:"";
-
-  position:absolute;
-
-  bottom:0;
-
-  left:45%;
-
-  width:14px;
-
-  height:135px;
-
-  border-radius:20px;
-
-  background:
-    currentColor;
-
-  box-shadow:
-    -23px -30px 0 -2px currentColor,
-    25px -50px 0 -1px currentColor,
-    -38px -70px 0 -5px currentColor,
-    40px -88px 0 -4px currentColor;
-}
-
-.coral::after{
-  left:20%;
-
-  height:100px;
-
-  transform:rotate(-14deg);
-
-  box-shadow:
-    18px -28px 0 -2px currentColor,
-    -15px -48px 0 -4px currentColor,
-    40px -62px 0 -5px currentColor;
-}
-
-.coral-orange{
-  left:5%;
-  color:#ff7138;
-}
-
-.coral-red{
-  left:17%;
-  color:#ff365c;
-  transform:scale(.82);
-}
-
-.coral-purple{
-  left:36%;
-  color:#b969ff;
-  transform:scale(.72);
-}
-
-.coral-blue{
-  right:23%;
-  color:#29caff;
-  transform:scale(.9);
-}
-
-.coral-white{
-  right:8%;
-  color:#e9ffff;
-  transform:scale(.75);
-}
-
-.coral-pink{
-  right:-1%;
-  color:#ff73c9;
-  transform:scale(.85);
-}
-
-
-/* =========================================================
-   SEAWEED
-   ========================================================= */
-
-.seaweed{
-  position:absolute;
-
-  bottom:0;
-
-  width:130px;
-  height:210px;
-
-  display:flex;
-
-  align-items:flex-end;
-  justify-content:center;
-
-  gap:7px;
-}
-
-.seaweed i{
-  width:14px;
-
-  height:var(--h);
-
-  display:block;
-
-  border-radius:
-    100% 0 100% 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      #075849,
-      #20c98b,
-      #7bffc0
-    );
-
-  box-shadow:
-    0 0 12px rgba(38,255,172,.25);
-
-  transform-origin:bottom;
-
-  animation:
-    seaweedWave 3s ease-in-out infinite alternate;
-}
-
-.seaweed i:nth-child(2){
-  animation-delay:-1s;
-}
-
-.seaweed i:nth-child(3){
-  animation-delay:-2s;
-}
-
-.seaweed i:nth-child(4){
-  animation-delay:-.5s;
-}
-
-@keyframes seaweedWave{
-  from{
-    transform:rotate(-9deg);
-  }
-
-  to{
-    transform:rotate(10deg);
-  }
-}
-
-.weed1{
-  left:10%;
-}
-
-.weed2{
-  left:55%;
-  transform:scale(.8);
-}
-
-.weed3{
-  right:3%;
-  transform:scale(1.1);
-}
-
-
-/* =========================================================
-   STARFISH
-   ========================================================= */
-
-.starfish{
-  position:absolute;
-
-  bottom:15px;
-
-  font-size:45px;
-
-  filter:
-    drop-shadow(
-      0 0 8px #ff7048
-    );
-
-  animation:
-    starFloat 4s ease-in-out infinite;
-}
-
-.star1{
-  left:29%;
-}
-
-.star2{
-  right:29%;
-  animation-delay:-2s;
-}
-
-@keyframes starFloat{
-  50%{
-    transform:
-      translateY(-8px)
-      rotate(12deg);
-  }
-}
-
-
-/* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
 footer{
-  position:relative;
-  z-index:3;
-
-  width:min(1200px,94%);
-
-  margin:
-    -180px auto 35px;
-
-  padding:30px;
 
   text-align:center;
 
-  border-radius:25px;
-
-  border:
-    1px solid
-    rgba(103,232,249,.25);
-
-  background:
-    rgba(1,25,40,.60);
-
-  backdrop-filter:blur(18px);
+  padding:35px 20px 45px;
 
   color:var(--muted);
-}
 
-body.day footer{
-  background:
-    rgba(240,253,255,.70);
-}
+  position:relative;
 
-
-/* =========================================================
-   DAY MODE
-   ========================================================= */
-
-body.day .hero h1{
-  color:#06455d;
-
-  text-shadow:
-    0 2px 8px rgba(255,255,255,.9),
-    0 0 25px rgba(255,255,255,.55);
-}
-
-body.day .page-number{
-  color:#087f9e;
-}
-
-body.day .glass-card{
-  box-shadow:
-    0 15px 45px rgba(0,90,120,.16),
-    0 0 25px rgba(0,190,230,.14),
-    inset 0 1px 0 rgba(255,255,255,.70);
-}
-
-body.day .fish{
-  opacity:.55;
-}
-
-body.day .jellyfish{
-  opacity:.48;
+  z-index:3;
 }
 
 
 /* =========================================================
-   RESPONSIVE
-   ========================================================= */
+   MOBILE
+========================================================= */
 
 @media(max-width:850px){
 
-  .profile-card{
-    grid-template-columns:1fr;
-
-    text-align:center;
+  .navbar{
+    top:10px;
+    padding:8px;
   }
 
-  .personal-grid{
-    grid-template-columns:1fr;
+  .nav-links{
+
+    display:none;
+
+    position:absolute;
+
+    top:70px;
+    left:0;
+    right:0;
+
+    padding:12px;
+
+    flex-direction:column;
+
+    border-radius:20px;
+
+    background:
+      rgba(2,24,38,.94);
+
+    backdrop-filter:blur(20px);
+
+    border:
+      1px solid var(--border);
   }
 
-  .hobby-grid,
-  .contact-grid{
-    grid-template-columns:
-      repeat(2,1fr);
+  body.day .nav-links{
+    background:
+      rgba(238,253,255,.94);
   }
 
-}
-
-@media(max-width:600px){
-
-  header{
-    min-height:70px;
-
-    top:8px;
-
-    border-radius:21px;
+  .nav-links.open{
+    display:flex;
   }
 
-  .logo{
-    padding:5px 8px;
-  }
-
-  .logo-icon{
-    width:40px;
-    height:40px;
-    font-size:23px;
-  }
-
-  .logo strong{
-    font-size:13px;
-  }
-
-  .mode-btn{
-    padding:9px 11px;
-
-    font-size:12px;
+  .nav-btn{
+    width:100%;
   }
 
   .menu-btn{
-    width:45px;
-    height:45px;
+    display:block;
   }
 
-  main{
-    width:92%;
+  .navbar-right{
+    display:flex;
+    align-items:center;
+    gap:6px;
   }
 
-  .hero{
-    min-height:350px;
+  .profile{
 
-    padding-top:60px;
-  }
-
-  .hero h1{
-    font-size:38px;
-  }
-
-  .page-number{
-    font-size:10px;
-  }
-
-  .profile-card{
-    padding:23px 17px;
+    grid-template-columns:1fr;
   }
 
   .profile-photo{
-    width:175px;
-    height:175px;
-    font-size:70px;
+    min-height:250px;
   }
 
-  .edu-card{
-    padding:
-      23px 19px;
-
-    border-radius:24px;
+  .cards{
+    grid-template-columns:1fr;
   }
 
-  .edu-title{
-    font-size:21px;
+  .hobby-grid{
+    grid-template-columns:1fr;
   }
 
-  .edu-desc{
-    font-size:13px;
-  }
-
-  .hobby-grid,
   .contact-grid{
     grid-template-columns:1fr;
   }
 
-  .ocean-floor{
-    height:180px;
+  .page{
+    padding:
+      120px 18px 90px;
   }
 
-  .coral{
-    transform:scale(.55);
-  }
-
-  .seaweed{
-    transform:scale(.60);
-    transform-origin:bottom;
-  }
-
-  .rock{
-    transform:scale(.65);
-    transform-origin:bottom;
-  }
-
-  .jellyfish{
-    opacity:.40;
-  }
-
-}
-
-@media(max-width:400px){
-
-  .logo strong{
-    display:none;
+  .hero{
+    min-height:
+      calc(100vh - 100px);
   }
 
   .hero h1{
-    font-size:34px;
+    font-size:
+      clamp(43px,13vw,75px);
   }
 
-  .hero p{
-    font-size:14px;
+  .fish{
+    font-size:30px;
+  }
+
+  .coral{
+    transform:scale(.7);
+    transform-origin:bottom;
   }
 
 }
 
 
 /* =========================================================
-   REDUCED MOTION
-   ========================================================= */
+   VERY SMALL SCREEN
+========================================================= */
+
+@media(max-width:430px){
+
+  .logo{
+    padding:7px 9px;
+    font-size:13px;
+  }
+
+  .logo-icon{
+    font-size:21px;
+  }
+
+  .mode-btn{
+    padding:8px 9px;
+    font-size:13px;
+  }
+
+  .menu-btn{
+    padding:8px 10px;
+  }
+
+  .card,
+  .edu-card,
+  .hobby,
+  .contact{
+    padding:23px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
   *,
-  *::before,
-  *::after{
-    animation-duration:.01ms !important;
-    animation-iteration-count:1 !important;
+  *:before,
+  *:after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
   }
 
 }
@@ -1910,206 +2230,235 @@ body.day .jellyfish{
 
 <body>
 
+<!-- ========================================================
+     OCEAN BACKGROUND
+========================================================= -->
 
-<!-- =======================================================
-     SCI-FI GRID
-======================================================= -->
+<div class="ocean-bg">
 
-<div class="scifi-grid"></div>
+  <div class="ocean-light"></div>
 
-
-<!-- =======================================================
-     WATER RAYS
-======================================================= -->
-
-<div class="water-rays">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-
-
-<!-- =======================================================
-     PARTICLES
-======================================================= -->
-
-<div class="hud-particles">
-
-  <i style="left:6%;top:20%;animation-delay:-1s"></i>
-  <i style="left:14%;top:43%;animation-delay:-3s"></i>
-  <i style="left:23%;top:72%;animation-delay:-2s"></i>
-  <i style="left:34%;top:27%;animation-delay:-4s"></i>
-  <i style="left:45%;top:55%;animation-delay:-1.5s"></i>
-  <i style="left:57%;top:31%;animation-delay:-3.5s"></i>
-  <i style="left:69%;top:69%;animation-delay:-2.5s"></i>
-  <i style="left:78%;top:42%;animation-delay:-4.5s"></i>
-  <i style="left:90%;top:24%;animation-delay:-1.8s"></i>
-
-</div>
-
-
-<!-- =======================================================
-     BUBBLES
-======================================================= -->
-
-<div class="bubbles">
-
-  <span class="bubble"
-        style="--size:12px;--time:9s;--delay:-2s;--move:35px;left:4%">
-  </span>
-
-  <span class="bubble"
-        style="--size:23px;--time:13s;--delay:-6s;--move:-30px;left:11%">
-  </span>
-
-  <span class="bubble"
-        style="--size:8px;--time:7s;--delay:-3s;--move:25px;left:19%">
-  </span>
-
-  <span class="bubble"
-        style="--size:17px;--time:11s;--delay:-5s;--move:-40px;left:29%">
-  </span>
-
-  <span class="bubble"
-        style="--size:10px;--time:8s;--delay:-1s;--move:30px;left:39%">
-  </span>
-
-  <span class="bubble"
-        style="--size:27px;--time:15s;--delay:-8s;--move:-35px;left:48%">
-  </span>
-
-  <span class="bubble"
-        style="--size:12px;--time:9s;--delay:-4s;--move:40px;left:59%">
-  </span>
-
-  <span class="bubble"
-        style="--size:20px;--time:12s;--delay:-7s;--move:-25px;left:68%">
-  </span>
-
-  <span class="bubble"
-        style="--size:9px;--time:7s;--delay:-2s;--move:35px;left:77%">
-  </span>
-
-  <span class="bubble"
-        style="--size:24px;--time:14s;--delay:-9s;--move:-35px;left:87%">
-  </span>
-
-</div>
-
-
-<!-- =======================================================
-     SEA LIFE
-======================================================= -->
-
-<div class="sea-life">
-
-  <div class="fish fish1"
-       style="--fish-size:34px;--speed:25s;--delay:-2s">
-    🐠
+  <div class="rays">
+    <div class="ray"></div>
+    <div class="ray"></div>
+    <div class="ray"></div>
+    <div class="ray"></div>
+    <div class="ray"></div>
   </div>
 
-  <div class="fish fish2"
-       style="--fish-size:27px;--speed:32s;--delay:-11s">
-    🐟
-  </div>
+  <!-- ปลา -->
+  <div class="fish f1">🐠</div>
+  <div class="fish f2">🐟</div>
+  <div class="fish f3">🐡</div>
+  <div class="fish f4">🐬</div>
+  <div class="fish f5">🐠</div>
+  <div class="fish f6">🦐</div>
+  <div class="fish f7">🐟</div>
+  <div class="fish f8">🐡</div>
+  <div class="fish f9">🐠</div>
 
-  <div class="fish fish3"
-       style="--fish-size:43px;--speed:29s;--delay:-19s">
-    🐡
-  </div>
+  <!-- แมงกะพรุน -->
+  <div class="jelly j1">🪼</div>
+  <div class="jelly j2">🪼</div>
+  <div class="jelly j3">🪼</div>
+  <div class="jelly j4">🪼</div>
 
-  <div class="fish fish4"
-       style="--fish-size:31px;--speed:37s;--delay:-7s">
-    🐠
-  </div>
+  <!-- ฟองอากาศ -->
+  <div class="bubbles">
 
-  <div class="fish fish5"
-       style="--fish-size:48px;--speed:34s;--delay:-24s">
-    🐬
-  </div>
+    <div class="bubble"
+         style="width:18px;height:18px;left:8%;animation-duration:9s"></div>
 
-  <div class="fish fish6"
-       style="--fish-size:25px;--speed:27s;--delay:-14s">
-    🐟
-  </div>
+    <div class="bubble"
+         style="width:11px;height:11px;left:18%;animation-duration:13s;animation-delay:-5s"></div>
 
-  <div class="fish fish7"
-       style="--fish-size:37px;--speed:41s;--delay:-30s">
-    🐠
-  </div>
+    <div class="bubble"
+         style="width:25px;height:25px;left:30%;animation-duration:16s;animation-delay:-9s"></div>
 
-  <div class="fish fish8"
-       style="--fish-size:30px;--speed:35s;--delay:-20s">
-    🐡
+    <div class="bubble"
+         style="width:13px;height:13px;left:44%;animation-duration:11s;animation-delay:-2s"></div>
+
+    <div class="bubble"
+         style="width:30px;height:30px;left:57%;animation-duration:18s;animation-delay:-7s"></div>
+
+    <div class="bubble"
+         style="width:16px;height:16px;left:69%;animation-duration:12s;animation-delay:-4s"></div>
+
+    <div class="bubble"
+         style="width:23px;height:23px;left:81%;animation-duration:15s;animation-delay:-10s"></div>
+
+    <div class="bubble"
+         style="width:10px;height:10px;left:92%;animation-duration:10s;animation-delay:-3s"></div>
+
   </div>
 
 
-  <!-- JELLYFISH -->
+  <!-- หิน -->
+  <div class="seabed"></div>
 
-  <div class="jellyfish jelly1"
-       style="--jelly-size:70px;--speed:5s;--delay:-1s">
-    🪼
+  <div class="rock r1"></div>
+  <div class="rock r2"></div>
+  <div class="rock r3"></div>
+  <div class="rock r4"></div>
+  <div class="rock r5"></div>
+
+
+  <!-- ปะการังสีต่างๆ -->
+
+  <div class="coral orange"
+       style="left:3%">
+    <span></span><span></span><span></span><span></span>
   </div>
 
-  <div class="jellyfish jelly2"
-       style="--jelly-size:45px;--speed:7s;--delay:-4s">
-    🪼
+  <div class="coral red"
+       style="left:20%">
+    <span></span><span></span><span></span><span></span>
   </div>
 
-  <div class="jellyfish jelly3"
-       style="--jelly-size:58px;--speed:6s;--delay:-2s">
-    🪼
+  <div class="coral purple"
+       style="left:39%">
+    <span></span><span></span><span></span><span></span>
   </div>
 
-  <div class="jellyfish jelly4"
-       style="--jelly-size:38px;--speed:8s;--delay:-5s">
-    🪼
+  <div class="coral blue"
+       style="left:58%">
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="coral white"
+       style="left:78%">
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+
+  <!-- สาหร่าย -->
+
+  <div class="seaweed" style="left:10%">
+    <i></i><i></i><i></i><i></i>
+  </div>
+
+  <div class="seaweed" style="left:32%">
+    <i></i><i></i><i></i><i></i>
+  </div>
+
+  <div class="seaweed" style="left:70%">
+    <i></i><i></i><i></i><i></i>
+  </div>
+
+  <div class="seaweed" style="right:5%">
+    <i></i><i></i><i></i><i></i>
   </div>
 
 </div>
 
 
-<!-- =======================================================
-     HEADER
-======================================================= -->
+<!-- ========================================================
+     LOADER
+========================================================= -->
 
-<header>
+<div id="loader">
 
-  <a href="#top" class="logo">
+  <div class="loader-bg">
+    <span>🐠</span>
+    <span>🐟</span>
+    <span>🐬</span>
+    <span>🪼</span>
+    <span>🐡</span>
+  </div>
 
-    <span class="logo-icon">
-      🌊
-    </span>
+  <div class="loader-content">
 
-    <strong>
+    <div class="loader-orbit">
+
+      <span class="loader-fish a">🐠</span>
+
+      <div class="loader-wave">
+        🌊
+      </div>
+
+      <span class="loader-fish b">🐟</span>
+
+    </div>
+
+    <h1>
       Supitchaya Ocean
-    </strong>
+    </h1>
 
+    <p>
+      กำลังดำดิ่งสู่โลกใต้ทะเล...
+    </p>
+
+    <div class="loader-line">
+      <span></span>
+    </div>
+
+    <div class="loader-dots">
+      • • •
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar">
+
+  <a href="#" class="logo" onclick="showPage('home');return false;">
+    <span class="logo-icon">🌊</span>
+    <span>Supitchaya Ocean</span>
   </a>
 
 
-  <div class="header-actions">
+  <nav class="nav-links" id="navLinks">
 
-    <button
-      class="mode-btn"
-      id="modeBtn"
-      onclick="toggleMode()">
-
-      🌙 กลางคืน
-
+    <button class="nav-btn active"
+            data-page="home"
+            onclick="showPage('home')">
+      🏠 หน้าแรก
     </button>
 
+    <button class="nav-btn"
+            data-page="profile"
+            onclick="showPage('profile')">
+      👤 ประวัติส่วนตัว
+    </button>
 
-    <button
-      class="menu-btn"
-      id="menuBtn"
-      onclick="toggleMenu()">
+    <button class="nav-btn"
+            data-page="education"
+            onclick="showPage('education')">
+      🎓 การศึกษา
+    </button>
 
+    <button class="nav-btn"
+            data-page="hobby"
+            onclick="showPage('hobby')">
+      🎨 งานอดิเรก
+    </button>
+
+    <button class="nav-btn"
+            data-page="contact"
+            onclick="showPage('contact')">
+      📱 ช่องทางติดต่อ
+    </button>
+
+  </nav>
+
+
+  <div class="navbar-right">
+
+    <button class="mode-btn"
+            id="modeBtn"
+            onclick="toggleMode()">
+      🌙 กลางคืน
+    </button>
+
+    <button class="menu-btn"
+            onclick="toggleMenu()">
       ☰
-
     </button>
 
   </div>
@@ -2117,172 +2466,123 @@ body.day .jellyfish{
 </header>
 
 
-<!-- =======================================================
-     MOBILE MENU
-======================================================= -->
-
-<nav class="mobile-menu" id="mobileMenu">
-
-  <a href="#profile"
-     onclick="closeMenu()">
-    👤 ประวัติส่วนตัว
-  </a>
-
-  <a href="#education"
-     onclick="closeMenu()">
-    🎓 ประวัติการศึกษา
-  </a>
-
-  <a href="#hobbies"
-     onclick="closeMenu()">
-    🎮 งานอดิเรก
-  </a>
-
-  <a href="#contact"
-     onclick="closeMenu()">
-    📞 ช่องทางติดต่อ
-  </a>
-
-</nav>
-
-
-<!-- =======================================================
+<!-- ========================================================
      MAIN
-======================================================= -->
+========================================================= -->
 
-<main id="top">
+<main>
 
 
-<!-- =======================================================
-     HERO
-======================================================= -->
+<!-- ========================================================
+     PAGE 1 — HOME
+========================================================= -->
 
-<section class="hero">
+<section class="page active" id="home">
 
-  <div class="page-number">
-    SUPITCHAYA · OCEAN PORTFOLIO
+  <div class="hero">
+
+    <div class="eyebrow">
+      PAGE 01 • HOME
+    </div>
+
+    <h1>
+      Supitchaya
+      <br>
+      Ocean
+    </h1>
+
+    <p>
+      ยินดีต้อนรับเข้าสู่โลกใต้ทะเลของฉัน
+      <br>
+      พื้นที่เล็ก ๆ สำหรับเก็บเรื่องราว
+      ตัวตน การเรียนรู้ งานอดิเรก
+      และสิ่งที่ฉันสนใจ
+    </p>
+
+    <div class="home-ocean">
+
+      🐠 🪼 🐬 🪸 🐡 🐚
+
+      <br><br>
+
+      <strong>
+        🌊 Welcome to My Ocean Portfolio 🌊
+      </strong>
+
+      <br><br>
+
+      <span style="color:var(--muted)">
+        เลือกเมนูด้านบนเพื่อสำรวจแต่ละหน้าของ Portfolio
+      </span>
+
+    </div>
+
   </div>
-
-  <h1>
-    🌊 Supitchaya Ocean
-  </h1>
-
-  <p>
-    โลกเล็ก ๆ ใต้มหาสมุทร
-    ที่รวมเรื่องราว ตัวตน การเรียนรู้
-    ความสนใจ และความฝันของฉัน
-  </p>
 
 </section>
 
 
-<!-- =======================================================
-     PERSONAL PROFILE
-======================================================= -->
+<!-- ========================================================
+     PAGE 2 — PROFILE
+========================================================= -->
 
-<section id="profile">
+<section class="page" id="profile">
 
   <div class="section-title">
 
-    <small>
-      PAGE 01 · PROFILE
-    </small>
+    <div class="small">
+      PAGE 02 • PROFILE
+    </div>
 
     <h2>
       👤 ประวัติส่วนตัว
     </h2>
 
+    <p>
+      มาทำความรู้จักกับฉันกันมากขึ้น
+    </p>
+
   </div>
 
 
-  <div class="glass-card profile-card">
+  <div class="profile">
 
     <div class="profile-photo">
-      👩🏻‍🎓
+
+      <!-- ใส่รูปจริงของคุณแทน emoji ตรงนี้ได้ -->
+
+      <span>
+        👤
+      </span>
+
     </div>
 
-    <div class="profile-content">
 
-      <h3>
-        Supitchaya
-      </h3>
+    <div class="info-list">
 
-      <p>
-        ยินดีต้อนรับเข้าสู่พอร์ตโฟลิโอของฉัน
-        พื้นที่ที่รวบรวมเรื่องราวเกี่ยวกับตัวตน
-        การเรียนรู้ ความสนใจ และสิ่งที่อยากพัฒนาต่อไป
-      </p>
+      <div class="info-row">
+        <b>👤 ชื่อ - นามสกุล</b>
+        <span>ใส่ชื่อ - นามสกุลของคุณที่นี่</span>
+      </div>
 
+      <div class="info-row">
+        <b>🎂 วันเกิด</b>
+        <span>ใส่วันเกิดของคุณที่นี่</span>
+      </div>
 
-      <div class="personal-grid">
+      <div class="info-row">
+        <b>🏫 โรงเรียน</b>
+        <span>โรงเรียนจอมทอง</span>
+      </div>
 
-        <div class="personal-item">
+      <div class="info-row">
+        <b>📚 ระดับชั้น</b>
+        <span>ใส่ระดับชั้นของคุณที่นี่</span>
+      </div>
 
-          <span class="icon">
-            🌊
-          </span>
-
-          <strong>
-            สไตล์
-          </strong>
-
-          <span>
-            Ocean & Underwater
-          </span>
-
-        </div>
-
-
-        <div class="personal-item">
-
-          <span class="icon">
-            🔬
-          </span>
-
-          <strong>
-            ความสนใจ
-          </strong>
-
-          <span>
-            วิทยาศาสตร์ เทคโนโลยี และสิ่งแวดล้อม
-          </span>
-
-        </div>
-
-
-        <div class="personal-item">
-
-          <span class="icon">
-            📚
-          </span>
-
-          <strong>
-            การเรียนรู้
-          </strong>
-
-          <span>
-            เรียนรู้สิ่งใหม่ ๆ และพัฒนาตัวเอง
-          </span>
-
-        </div>
-
-
-        <div class="personal-item">
-
-          <span class="icon">
-            🚀
-          </span>
-
-          <strong>
-            เป้าหมาย
-          </strong>
-
-          <span>
-            เติบโตและพัฒนาตัวเองต่อไป
-          </span>
-
-        </div>
-
+      <div class="info-row">
+        <b>🌱 ความสนใจ</b>
+        <span>ใส่ความสนใจของคุณที่นี่</span>
       </div>
 
     </div>
@@ -2292,214 +2592,137 @@ body.day .jellyfish{
 </section>
 
 
-<!-- =======================================================
-     EDUCATION
-======================================================= -->
+<!-- ========================================================
+     PAGE 3 — EDUCATION
+========================================================= -->
 
-<section id="education">
+<section class="page" id="education">
 
   <div class="section-title">
 
-    <small>
-      PAGE 03 · EDUCATION
-    </small>
+    <div class="small">
+      PAGE 03 • EDUCATION
+    </div>
 
     <h2>
       🎓 ประวัติการศึกษา
     </h2>
 
+    <p>
+      ทุกช่วงเวลาของการเรียน
+      คืออีกหนึ่งคลื่นที่พาฉันเติบโตขึ้น
+    </p>
+
   </div>
 
 
-  <div class="education">
+  <div class="timeline">
 
 
-    <!-- ANUBAN -->
+    <article class="edu-card">
 
-    <article class="glass-card edu-card">
-
-      <div class="edu-bubbles">
-
-        <span style="--s:20px"></span>
-        <span style="--s:12px"></span>
-        <span style="--s:8px"></span>
-
+      <div class="edu-level">
+        🧸 ระดับอนุบาล
       </div>
 
-      <div class="edu-content">
+      <h3>
+        โรงเรียนศรีจอมทอง
+      </h3>
 
-        <div class="edu-label">
-          🧸 ระดับอนุบาล
-        </div>
-
-        <div class="edu-title">
-          โรงเรียนศรีจอมทอง
-        </div>
-
-        <div class="edu-desc">
-          จุดเริ่มต้นของเส้นทางการเรียนรู้
-          และประสบการณ์แรก ๆ ในโรงเรียน
-        </div>
-
-      </div>
+      <p>
+        จุดเริ่มต้นของเส้นทางการเรียนรู้
+        และประสบการณ์แรก ๆ ในโรงเรียน
+      </p>
 
     </article>
 
 
-    <!-- PRIMARY -->
+    <article class="edu-card">
 
-    <article class="glass-card edu-card">
-
-      <div class="edu-bubbles">
-
-        <span style="--s:18px"></span>
-        <span style="--s:10px"></span>
-        <span style="--s:7px"></span>
-
+      <div class="edu-level">
+        📚 ระดับประถมศึกษา
       </div>
 
-      <div class="edu-content">
+      <h3>
+        โรงเรียนศรีจอมทอง
+      </h3>
 
-        <div class="edu-label">
-          📚 ระดับประถมศึกษา
-        </div>
-
-        <div class="edu-title">
-          โรงเรียนศรีจอมทอง
-        </div>
-
-        <div class="edu-desc">
-          เริ่มค้นพบความสนใจ และพัฒนาทักษะต่าง ๆ
-          ผ่านการเรียนและกิจกรรม
-        </div>
-
-      </div>
+      <p>
+        เริ่มค้นพบความสนใจ
+        และพัฒนาทักษะต่าง ๆ
+        ผ่านการเรียนและกิจกรรม
+      </p>
 
     </article>
 
 
-    <!-- SECONDARY -->
+    <article class="edu-card">
 
-    <article class="glass-card edu-card">
-
-      <div class="edu-bubbles">
-
-        <span style="--s:22px"></span>
-        <span style="--s:11px"></span>
-        <span style="--s:8px"></span>
-
+      <div class="edu-level">
+        🧑‍🎓 ระดับมัธยมศึกษา
       </div>
 
-      <div class="edu-content">
+      <h3>
+        โรงเรียนจอมทอง
+      </h3>
 
-        <div class="edu-label">
-          🧑‍🎓 ระดับมัธยมศึกษา
-        </div>
-
-        <div class="edu-title">
-          โรงเรียนจอมทอง
-        </div>
-
-        <div class="edu-desc">
-          ช่วงเวลาปัจจุบัน ที่กำลังเรียนรู้สิ่งใหม่ ๆ
-          และค้นหาความสนใจของตัวเอง
-        </div>
-
-      </div>
+      <p>
+        ช่วงเวลาปัจจุบัน
+        ที่กำลังเรียนรู้สิ่งใหม่ ๆ
+        และค้นหาความสนใจของตัวเอง
+      </p>
 
     </article>
 
 
-    <!-- CURRENT SCHOOL -->
+    <article class="edu-card">
 
-    <article class="glass-card edu-card">
-
-      <div class="edu-content">
-
-        <div class="edu-label">
-          🏫 โรงเรียนปัจจุบัน
-        </div>
-
-        <div class="edu-title">
-          โรงเรียนจอมทอง
-        </div>
-
-        <div class="edu-desc">
-          โรงเรียนปัจจุบัน
-        </div>
-
+      <div class="edu-level">
+        🏫 โรงเรียนปัจจุบัน
       </div>
+
+      <h3>
+        โรงเรียนจอมทอง
+      </h3>
+
+      <p>
+        สถานศึกษาปัจจุบัน
+      </p>
 
     </article>
 
 
-    <!-- LEVEL -->
+    <article class="edu-card">
 
-    <article class="glass-card edu-card">
-
-      <div class="edu-content">
-
-        <div class="edu-label">
-          📖 ระดับการศึกษา
-        </div>
-
-        <div class="edu-title">
-          มัธยมศึกษาตอนต้น
-        </div>
-
-        <div class="edu-desc">
-          กำลังเรียนรู้และพัฒนาทักษะต่าง ๆ
-        </div>
-
+      <div class="edu-level">
+        📖 ระดับการศึกษา
       </div>
+
+      <h3>
+        มัธยมศึกษาตอนต้น
+      </h3>
+
+      <p>
+        กำลังศึกษาในระดับมัธยมศึกษาตอนต้น
+      </p>
 
     </article>
 
 
-    <!-- GOAL -->
+    <article class="edu-card">
 
-    <article class="glass-card edu-card">
-
-      <div class="edu-content">
-
-        <div class="edu-label">
-          🌱 เป้าหมาย
-        </div>
-
-        <div class="edu-title">
-          เรียนรู้และพัฒนาตัวเอง
-        </div>
-
-        <div class="edu-desc">
-          มุ่งมั่นเรียนรู้สิ่งใหม่ ๆ
-          และพัฒนาตัวเองอย่างต่อเนื่อง
-        </div>
-
+      <div class="edu-level">
+        🌱 เป้าหมาย
       </div>
 
-    </article>
+      <h3>
+        เรียนรู้และพัฒนาตัวเอง
+      </h3>
 
-
-    <!-- INTEREST -->
-
-    <article class="glass-card edu-card">
-
-      <div class="edu-content">
-
-        <div class="edu-label">
-          💙 วิชาที่สนใจ
-        </div>
-
-        <div class="edu-title">
-          วิทยาศาสตร์ เทคโนโลยี และสิ่งแวดล้อม
-        </div>
-
-        <div class="edu-desc">
-          สนใจการเรียนรู้เกี่ยวกับวิทยาศาสตร์
-          เทคโนโลยี และสิ่งแวดล้อม
-        </div>
-
-      </div>
+      <p>
+        มุ่งมั่นเรียนรู้สิ่งใหม่ ๆ
+        และพัฒนาตัวเองในทุก ๆ วัน
+      </p>
 
     </article>
 
@@ -2508,21 +2731,25 @@ body.day .jellyfish{
 </section>
 
 
-<!-- =======================================================
-     HOBBIES
-======================================================= -->
+<!-- ========================================================
+     PAGE 4 — HOBBY
+========================================================= -->
 
-<section id="hobbies">
+<section class="page" id="hobby">
 
   <div class="section-title">
 
-    <small>
-      PAGE 04 · HOBBIES
-    </small>
+    <div class="small">
+      PAGE 04 • HOBBY
+    </div>
 
     <h2>
-      🎮 งานอดิเรก
+      🎨 งานอดิเรก
     </h2>
+
+    <p>
+      สิ่งที่ชอบทำในเวลาว่าง
+    </p>
 
   </div>
 
@@ -2530,105 +2757,111 @@ body.day .jellyfish{
   <div class="hobby-grid">
 
 
-    <article class="glass-card hobby-card">
+    <!-- แก้ข้อความในแต่ละช่องเป็นข้อมูลจริงได้ -->
 
-      <span class="hobby-icon">
-        💻
-      </span>
+    <article class="hobby">
 
-      <h3>
-        เทคโนโลยี
-      </h3>
-
-      <p>
-        สนุกกับการเรียนรู้และทดลองสิ่งใหม่ ๆ
-        ทางด้านเทคโนโลยี
-      </p>
-
-    </article>
-
-
-    <article class="glass-card hobby-card">
-
-      <span class="hobby-icon">
-        🎨
-      </span>
-
-      <h3>
-        การออกแบบ
-      </h3>
-
-      <p>
-        ชอบสร้างสรรค์ไอเดียและออกแบบผลงาน
-      </p>
-
-    </article>
-
-
-    <article class="glass-card hobby-card">
-
-      <span class="hobby-icon">
-        🔬
-      </span>
-
-      <h3>
-        วิทยาศาสตร์
-      </h3>
-
-      <p>
-        เรียนรู้เรื่องราวและสิ่งต่าง ๆ
-        รอบตัวผ่านวิทยาศาสตร์
-      </p>
-
-    </article>
-
-
-    <article class="glass-card hobby-card">
-
-      <span class="hobby-icon">
-        🎧
-      </span>
-
-      <h3>
-        ฟังเพลง
-      </h3>
-
-      <p>
-        ใช้เวลาว่างพักผ่อนและฟังเพลง
-      </p>
-
-    </article>
-
-
-    <article class="glass-card hobby-card">
-
-      <span class="hobby-icon">
+      <div class="hobby-icon">
         🎮
-      </span>
+      </div>
 
       <h3>
-        เล่นเกม
+        งานอดิเรกที่ 1
       </h3>
 
       <p>
-        เล่นเกมเพื่อความสนุกและผ่อนคลาย
+        ใส่รายละเอียดงานอดิเรก
+        ของคุณที่นี่
       </p>
 
     </article>
 
 
-    <article class="glass-card hobby-card">
+    <article class="hobby">
 
-      <span class="hobby-icon">
-        🌊
-      </span>
+      <div class="hobby-icon">
+        🎧
+      </div>
 
       <h3>
-        โลกใต้ทะเล
+        งานอดิเรกที่ 2
       </h3>
 
       <p>
-        ชื่นชอบบรรยากาศและสิ่งมีชีวิตใต้ท้องทะเล
+        ใส่รายละเอียดงานอดิเรก
+        ของคุณที่นี่
+      </p>
+
+    </article>
+
+
+    <article class="hobby">
+
+      <div class="hobby-icon">
+        📚
+      </div>
+
+      <h3>
+        งานอดิเรกที่ 3
+      </h3>
+
+      <p>
+        ใส่รายละเอียดงานอดิเรก
+        ของคุณที่นี่
+      </p>
+
+    </article>
+
+
+    <article class="hobby">
+
+      <div class="hobby-icon">
+        🎨
+      </div>
+
+      <h3>
+        งานอดิเรกที่ 4
+      </h3>
+
+      <p>
+        ใส่รายละเอียดงานอดิเรก
+        ของคุณที่นี่
+      </p>
+
+    </article>
+
+
+    <article class="hobby">
+
+      <div class="hobby-icon">
+        🔬
+      </div>
+
+      <h3>
+        งานอดิเรกที่ 5
+      </h3>
+
+      <p>
+        ใส่รายละเอียดงานอดิเรก
+        ของคุณที่นี่
+      </p>
+
+    </article>
+
+
+    <article class="hobby">
+
+      <div class="hobby-icon">
+        🌊
+      </div>
+
+      <h3>
+        งานอดิเรกที่ 6
+      </h3>
+
+      <p>
+        ใส่รายละเอียดงานอดิเรก
+        ของคุณที่นี่
       </p>
 
     </article>
@@ -2638,21 +2871,25 @@ body.day .jellyfish{
 </section>
 
 
-<!-- =======================================================
-     CONTACT
-======================================================= -->
+<!-- ========================================================
+     PAGE 5 — CONTACT
+========================================================= -->
 
-<section id="contact">
+<section class="page" id="contact">
 
   <div class="section-title">
 
-    <small>
-      PAGE 05 · CONTACT
-    </small>
+    <div class="small">
+      PAGE 05 • CONTACT
+    </div>
 
     <h2>
-      📞 ช่องทางติดต่อ
+      📱 ช่องทางติดต่อ
     </h2>
+
+    <p>
+      ช่องทางสำหรับติดต่อและติดตาม
+    </p>
 
   </div>
 
@@ -2660,79 +2897,114 @@ body.day .jellyfish{
   <div class="contact-grid">
 
 
-    <article class="glass-card contact-card">
+    <a class="contact"
+       href="#">
 
-      <span class="contact-icon">
+      <div class="contact-icon">
         📧
-      </span>
+      </div>
 
       <h3>
-        Email
+        E-mail
       </h3>
 
       <p>
-        ติดต่อผ่านอีเมล
+        ใส่อีเมลของคุณที่นี่
       </p>
 
-    </article>
+    </a>
 
 
-    <article class="glass-card contact-card">
+    <a class="contact"
+       href="#">
 
-      <span class="contact-icon">
+      <div class="contact-icon">
+        📱
+      </div>
+
+      <h3>
+        โทรศัพท์
+      </h3>
+
+      <p>
+        ใส่เบอร์โทรศัพท์ของคุณที่นี่
+      </p>
+
+    </a>
+
+
+    <a class="contact"
+       href="#">
+
+      <div class="contact-icon">
+        📘
+      </div>
+
+      <h3>
+        Facebook
+      </h3>
+
+      <p>
+        ใส่ Facebook ของคุณที่นี่
+      </p>
+
+    </a>
+
+
+    <a class="contact"
+       href="#">
+
+      <div class="contact-icon">
+        📸
+      </div>
+
+      <h3>
+        Instagram
+      </h3>
+
+      <p>
+        ใส่ Instagram ของคุณที่นี่
+      </p>
+
+    </a>
+
+
+    <a class="contact"
+       href="#">
+
+      <div class="contact-icon">
         💬
-      </span>
+      </div>
 
       <h3>
-        Social Media
+        ช่องทางอื่น ๆ
       </h3>
 
       <p>
-        ติดต่อผ่านโซเชียลมีเดีย
+        ใส่ช่องทางติดต่ออื่น ๆ ที่นี่
       </p>
 
-    </article>
+    </a>
 
 
-    <article class="glass-card contact-card">
+    <a class="contact"
+       href="#">
 
-      <span class="contact-icon">
+      <div class="contact-icon">
         🌐
-      </span>
+      </div>
 
       <h3>
         Portfolio
       </h3>
 
       <p>
-        Supitchaya Ocean Portfolio
+        เว็บไซต์ / ผลงานของฉัน
       </p>
 
-    </article>
+    </a>
 
   </div>
-
-</section>
-
-
-<!-- =======================================================
-     QUOTE
-======================================================= -->
-
-<section class="glass-card quote">
-
-  <div class="wave">
-    🌊
-  </div>
-
-  <h2>
-    ทุกคลื่นคือการเรียนรู้
-  </h2>
-
-  <p>
-    ทุกก้าวเล็ก ๆ ในวันนี้
-    กำลังพาเราไปสู่อนาคตที่ใหญ่ขึ้น
-  </p>
 
 </section>
 
@@ -2740,163 +3012,86 @@ body.day .jellyfish{
 </main>
 
 
-<!-- =======================================================
-     OCEAN FLOOR
-======================================================= -->
-
-<div class="ocean-floor">
-
-
-  <!-- ROCKS -->
-
-  <div class="rock rock1"></div>
-
-  <div class="rock rock2"></div>
-
-  <div class="rock rock3"></div>
-
-  <div class="rock rock4"></div>
-
-  <div class="rock rock5"></div>
-
-
-  <!-- CORALS -->
-
-  <div class="coral coral-orange"></div>
-
-  <div class="coral coral-red"></div>
-
-  <div class="coral coral-purple"></div>
-
-  <div class="coral coral-blue"></div>
-
-  <div class="coral coral-white"></div>
-
-  <div class="coral coral-pink"></div>
-
-
-  <!-- SEAWEED -->
-
-  <div class="seaweed weed1">
-
-    <i style="--h:110px"></i>
-    <i style="--h:170px"></i>
-    <i style="--h:135px"></i>
-    <i style="--h:185px"></i>
-
-  </div>
-
-
-  <div class="seaweed weed2">
-
-    <i style="--h:100px"></i>
-    <i style="--h:160px"></i>
-    <i style="--h:130px"></i>
-    <i style="--h:180px"></i>
-
-  </div>
-
-
-  <div class="seaweed weed3">
-
-    <i style="--h:120px"></i>
-    <i style="--h:180px"></i>
-    <i style="--h:145px"></i>
-    <i style="--h:195px"></i>
-
-  </div>
-
-
-  <!-- STARFISH -->
-
-  <div class="starfish star1">
-    ⭐
-  </div>
-
-  <div class="starfish star2">
-    ⭐
-  </div>
-
-
-</div>
-
-
-<!-- =======================================================
+<!-- ========================================================
      FOOTER
-======================================================= -->
+========================================================= -->
 
 <footer>
 
-  🌊 <strong>Supitchaya Ocean Portfolio</strong>
+  🌊 Supitchaya Ocean Portfolio 🌊
 
   <br><br>
 
-  <small>
-    Exploring • Learning • Growing
-  </small>
+  <span>
+    Explore • Learn • Dream • Grow
+  </span>
 
 </footer>
 
 
-<!-- =======================================================
+<!-- ========================================================
      JAVASCRIPT
-======================================================= -->
+========================================================= -->
 
 <script>
 
-
 /* =========================================================
-   MODE
+   PAGE NAVIGATION
 ========================================================= */
 
-function toggleMode(){
+function showPage(pageName){
 
-  document.body.classList.toggle("day");
+  /* ซ่อนทุกหน้า */
 
-  const button =
-    document.getElementById("modeBtn");
+  document
+    .querySelectorAll(".page")
+    .forEach(page => {
 
-  if(
-    document.body.classList.contains("day")
-  ){
+      page.classList.remove("active");
 
-    button.innerHTML =
-      "☀️ กลางวัน";
+    });
 
-    localStorage.setItem(
-      "oceanMode",
-      "day"
-    );
 
-  }else{
+  /* แสดงหน้าที่เลือก */
 
-    button.innerHTML =
-      "🌙 กลางคืน";
+  const page =
+    document.getElementById(pageName);
 
-    localStorage.setItem(
-      "oceanMode",
-      "night"
-    );
-
+  if(page){
+    page.classList.add("active");
   }
 
-}
+
+  /* ปุ่มเมนู */
+
+  document
+    .querySelectorAll(".nav-btn")
+    .forEach(btn => {
+
+      btn.classList.remove("active");
+
+      if(
+        btn.dataset.page === pageName
+      ){
+        btn.classList.add("active");
+      }
+
+    });
 
 
-/* =========================================================
-   LOAD MODE
-========================================================= */
+  /* ปิดเมนูมือถือ */
 
-const savedMode =
-  localStorage.getItem("oceanMode");
+  document
+    .getElementById("navLinks")
+    .classList.remove("open");
 
-if(savedMode === "day"){
 
-  document.body.classList.add("day");
+  /* กลับขึ้นด้านบน */
 
-  document.getElementById("modeBtn")
-    .innerHTML =
-    "☀️ กลางวัน";
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
 }
 
@@ -2908,172 +3103,98 @@ if(savedMode === "day"){
 function toggleMenu(){
 
   document
-    .getElementById("mobileMenu")
-    .classList.toggle("show");
-
-}
-
-
-function closeMenu(){
-
-  document
-    .getElementById("mobileMenu")
-    .classList.remove("show");
+    .getElementById("navLinks")
+    .classList.toggle("open");
 
 }
 
 
 /* =========================================================
-   CLOSE MENU OUTSIDE
+   DAY / NIGHT
 ========================================================= */
 
-document.addEventListener(
-  "click",
-  function(event){
+const modeBtn =
+  document.getElementById("modeBtn");
 
-    const menu =
-      document.getElementById(
-        "mobileMenu"
-      );
 
-    const button =
-      document.getElementById(
-        "menuBtn"
-      );
+function updateModeButton(){
 
-    if(
-      menu.classList.contains("show") &&
-      !menu.contains(event.target) &&
-      !button.contains(event.target)
-    ){
+  if(
+    document.body.classList.contains("day")
+  ){
 
-      menu.classList.remove("show");
+    modeBtn.textContent =
+      "☀️ กลางวัน";
 
-    }
+  }else{
+
+    modeBtn.textContent =
+      "🌙 กลางคืน";
+
+  }
+
+}
+
+
+function toggleMode(){
+
+  document.body.classList.toggle("day");
+
+  updateModeButton();
+
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+window.addEventListener(
+  "load",
+  function(){
+
+    setTimeout(
+      function(){
+
+        document
+          .getElementById("loader")
+          .classList.add("hide");
+
+      },
+      1200
+    );
 
   }
 );
 
 
 /* =========================================================
-   EXTRA RANDOM BUBBLES
-========================================================= */
-
-const bubbleBox =
-  document.querySelector(".bubbles");
-
-for(let i=0;i<25;i++){
-
-  const bubble =
-    document.createElement("span");
-
-  bubble.className =
-    "bubble";
-
-  const size =
-    Math.floor(
-      Math.random()*16
-    ) + 5;
-
-  bubble.style.setProperty(
-    "--size",
-    size+"px"
-  );
-
-  bubble.style.setProperty(
-    "--time",
-    (Math.random()*9+7)+"s"
-  );
-
-  bubble.style.setProperty(
-    "--delay",
-    (-Math.random()*12)+"s"
-  );
-
-  bubble.style.setProperty(
-    "--move",
-    (Math.random()*80-40)+"px"
-  );
-
-  bubble.style.left =
-    Math.random()*100+"%";
-
-  bubbleBox.appendChild(
-    bubble
-  );
-
-}
-
-
-/* =========================================================
-   CARD LIGHT
-========================================================= */
-
-document
-.querySelectorAll(".glass-card")
-.forEach(card=>{
-
-  card.addEventListener(
-    "mousemove",
-    function(e){
-
-      const rect =
-        card.getBoundingClientRect();
-
-      const x =
-        e.clientX - rect.left;
-
-      const y =
-        e.clientY - rect.top;
-
-      const rotateX =
-        ((y / rect.height) - .5) * -2;
-
-      const rotateY =
-        ((x / rect.width) - .5) * 2;
-
-      card.style.transform =
-        `
-        translateY(-5px)
-        perspective(800px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        scale(1.005)
-        `;
-
-    }
-  );
-
-
-  card.addEventListener(
-    "mouseleave",
-    function(){
-
-      card.style.transform = "";
-
-    }
-  );
-
-});
-
-
-/* =========================================================
-   ESCAPE
+   ESCAPE KEY
 ========================================================= */
 
 document.addEventListener(
   "keydown",
-  function(e){
+  function(event){
 
-    if(e.key === "Escape"){
-      closeMenu();
+    if(event.key === "Escape"){
+
+      document
+        .getElementById("navLinks")
+        .classList.remove("open");
+
     }
 
   }
 );
 
-</script>
 
+/* =========================================================
+   START
+========================================================= */
+
+updateModeButton();
+
+</script>
 
 </body>
    </html>
